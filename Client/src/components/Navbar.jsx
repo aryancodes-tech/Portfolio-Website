@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <div className="font-['Gilroy'] overflow-hidden p-5 w-full bg-[#dbdadf]">
+    <div className="font-['Gilroy'] overflow-hidden p-5 w-full bg-[#f4f4f5]">
         <div className="px-10 flex flex-row justify-between items-center navbar h-16 w-full rounded-xl bg-white shadow-md">
         {/* Monogram */}
         <div className="flex flex-row justify-between gap-2 items-center">
@@ -24,7 +24,7 @@ const Navbar = () => {
 
 
         {/* CTA */}
-        <button className="py-2 bg-black text-white font-semibold px-5 rounded-lg border-2 border-black">
+        <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
             Contact Me
         </button>
         </div>

@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .content {
+    @apply mx-auto max-w-4xl w-full md:w-11/12;
+  }
+}
+
 body {
     /* background-image: url('./assets/peakpx4.jpg'); */
-    background: #dbdadf;
+    background: #f4f4f5;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -107,4 +113,29 @@ body {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
