@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1716" height="234" viewBox="0 0 1716 234">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 281px;
+        font-family: Gilroy;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <text id="K" class="cls-1" transform="translate(-2.25 210.675)">K</text>
+  <text id="M" class="cls-1" transform="matrix(0.001, 1.066, -1.147, 0.001, 37.655, -8.182)">M</text>
+  <text id="KioskMeet" class="cls-1" x="329.251" y="211.062">KioskMeet</text>
+</svg>

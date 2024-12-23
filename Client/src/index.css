@@ -4,7 +4,7 @@
 
 @layer base {
   .content {
-    @apply mx-auto max-w-4xl w-full md:w-11/12;
+    @apply mx-auto max-w-6xl w-full md:w-11/12;
   }
 }
 
@@ -16,6 +16,23 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'PolySans Median', sans-serif;
+}
+/* Add this to your CSS file */
+.svg-icon {
+  width: 45.5px; /* Default size */
+  height: 33.5px; /* Default size */
+}
+
+@media (max-width: 768px) { /* Below md devices */
+  .svg-icon {
+    width: 30px; /* Adjusted size for smaller screens */
+    height: 22px; /* Adjusted size for smaller screens */
+  }
+}
+*::selection {
+  background: #dc2626;
+  opacity: 10%;
+  color: white;
 }
 
 @font-face {
@@ -139,3 +156,8 @@ body {
     transform: translate3d(-50%, 0, 0);
   }
 }
+
+/* @font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy.otf') format('opentype');
+} */

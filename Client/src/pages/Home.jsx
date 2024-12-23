@@ -3,30 +3,34 @@
 // import AboutMe from "../components/AboutMe/AboutMe"
 import Navbar from "../components/Navbar"
 import HeroSection from "../components/HeroSection"
-import AboutMe from "../components/AboutMe"
-import ContactMe from "../dump/ContactMe/ContactMe"
-import Projects from "../dump/Projects/Projects"
-import { ArrowDownCircle, ArrowUpRight } from "lucide-react"
+// import AboutMe from "../components/AboutMe"
+import ContactMe from "../components/ContactMe"
+import Projects from "../components/Projects"
 import Freelance from "../components/Freelance"
-// import LandingPage from "../components/HeroSection/LandingPage"
-// import Projects from "../components/Projects/Projects"
-// import Skills from "../components/AboutMe/Skills"
-// import { useEffect } from "react";
-
-// Add a new component for the snow effect
-
+import ResumeButton from "../components/ResumeButton"
+import { Element } from "react-scroll"
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="content">
       <Navbar />
+      
       <HeroSection />
 
-      <Freelance />
-      <Projects />      
+      <Element name="freelance">
+        <Freelance />  
+      </Element>
 
-      <AboutMe />
-      <ContactMe />
+      <Element name="projects">
+        <Projects />  
+      </Element>
+
+      {/* <AboutMe /> */}
+      <Element name="contactme">
+        <ContactMe />
+      </Element>
+
+      <ResumeButton />
     </div>
   )
 }

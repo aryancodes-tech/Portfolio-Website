@@ -1,92 +1,73 @@
+import { Link } from "react-scroll"
+import { useState } from "react";
+
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="font-['Gilroy'] overflow-hidden p-5 w-full bg-[#f4f4f5]">
-        <div className="px-10 flex flex-row justify-between items-center navbar h-16 w-full rounded-xl bg-white shadow-md">
-        {/* Monogram */}
-        <div className="flex flex-row justify-between gap-2 items-center">
-            <img src="/ag_black.svg" className="w-12 rounded-lg"/>
-            <p className="text-2xl uppercase flex flex-col leading-none tracking-normal">
-            <span className="font-light">Aryan</span>{" "}
-            <span className="font-bold">Gupta</span> 
-            </p>
+        <div className="px-3 md:px-6 lg:px-10 flex flex-row justify-between items-center navbar h-16 w-full rounded-md md:rounded-lg bg-white shadow-md">
+          {/* Monogram */}
+          <div className="flex flex-row justify-between gap-2 items-center">
+              <img src="/ag_black.svg" className="w-12 rounded-lg"/>
+              <p className="text-2xl uppercase flex flex-col leading-none tracking-normal">
+              <span className="font-light">Aryan</span>{" "}
+              <span className="font-bold">Gupta</span> 
+              </p>
+          </div>
+
+          {/* Hamburger Menu for small screens */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+              {/* Hamburger Icon */}
+              <div className="w-6 h-1 bg-black mb-1"></div>
+              <div className="w-6 h-1 bg-black mb-1"></div>
+              <div className="w-6 h-1 bg-black"></div>
+            </button>
+          </div>
+
+          {/* Links for larger screens */}
+          <div className="hidden md:flex">
+              <ul className="flex flex-row gap-5">
+              {/* <li className="hover:cursor-pointer">ABOUT ME</li>
+              <li>/</li> */}
+              <li className="hover:cursor-pointer">
+                <Link to="freelance" smooth={true} duration={500}>FREELANCE</Link>
+              </li>
+              <li>/</li>
+              <li className="hover:cursor-pointer">
+                <Link to="projects" smooth={true} duration={500}>PROJECTS</Link>
+              </li>
+              </ul>
+          </div>
+
+          {/* CTA for larger screens */}
+          <div className="hidden md:block">
+            <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
+              <Link to="contactme" smooth={true} duration={500}>Contact Me</Link>
+            </button>
+          </div>
         </div>
 
-
-        <div>
-            <ul className="flex flex-row gap-5">
-            <li className="hover:cursor-pointer">ABOUT ME</li>
-            <li>/</li>
-            <li className="hover:cursor-pointer">FREELANCE</li>
-            <li>/</li>
-            <li className="hover:cursor-pointer">PROJECTS</li>
+        {/* Dropdown Menu for small screens */}
+        {isOpen && (
+          <div className="md:hidden bg-white shadow-md rounded-lg mt-2">
+            <ul className="flex flex-col gap-2 p-3">
+              {/* <li className="hover:cursor-pointer">ABOUT ME</li> */}
+              <li className="hover:cursor-pointer">
+                <Link to="freelance" smooth={true} duration={500}>FREELANCE</Link>
+              </li>
+              <li className="hover:cursor-pointer">
+                <Link to="projects" smooth={true} duration={500}>PROJECTS</Link>
+              </li>
+              <li>
+                <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
+                  <Link to="contactme" smooth={true} duration={500}>Contact Me</Link>
+                </button>
+              </li>
             </ul>
-        </div>
-
-
-        {/* CTA */}
-        <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
-            Contact Me
-        </button>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {/* <Element name="home" className=" overflow-hidden h-screen w-screen flex flex-col items-center">
-      <LandingPage />
-    </Element>
-    
-    <Element name="about" className="w-screen mt-20 flex justify-center rounded-t-[50px]">
-      <AboutMe />
-    </Element>
-
-    <Element name="skills" className="w-screen mt-2 flex justify-center rounded-t-[50px]">
-      <Skills />
-    </Element>
-    
-    <Element name="projects" className="w-screen mt-20 flex justify-center items-center">
-      <Projects />
-    </Element>
-    
-    <Element name="contact"className="w-screen h-screen mt-28 bg-black mt-[50px] rounded-t-[70px] flex justify-center items-center">
-      <ContactMe />
-    </Element> */}
-
-
-    {/* <div className="fixed bottom-0 left-0 right-0 mb-4 z-50 flex justify-center cursor-pointer">
-      <BottomNavbar />
-    </div> */}
+          </div>
+        )}
     </div>
   )
 }
