@@ -4,7 +4,7 @@ import kioskmeet from '/project_logos/kioskmeet.svg'
 import widgetwall from '/project_logos/widgetwall.svg'
 import compilex from '/project_logos/compilex.svg'
 import squadspeak from '/project_logos/squadspeak.svg'
-import jobspool from '/project_logos/jobspool.png'
+import jobspool from '/project_logos/jobspool.svg'
 
 import ProjectCard from './ProjectCard'
 import { Sparkle } from 'lucide-react'

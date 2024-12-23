@@ -22,7 +22,7 @@ const ContactMe = () => {
           Contact Me
         </p>
         
-        <p className='contact-me-description text-white text-3xl text-center tracking-normal leading-loose'>
+        <p className='contact-me-description text-white text-2xl text-center tracking-normal leading-loose'>
           Have questions, ideas, or proposals? <br/>Let&apos;s team up and create something remarkable!
         </p>
         

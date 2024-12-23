@@ -24,7 +24,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
       )}
       
       <div className="flex flex-row justify-between items-center">
-        <img src={source} className="w-24 md:h-10 md:w-40"/>
+        <img src={source} className="w-24 md:h-10 md:w-40" alt={name}/>
         <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden md:block hover:cursor-pointer">
           <Github size={40}/>
         </a>
@@ -61,7 +61,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
         {/* Preview Image/GIF */}
         {showPreview && (
           <div 
-            className="fixed z-10 w-[400px] rounded-lg bg-white shadow-xl"
+            className="hidden sm:block fixed z-10 w-[400px] rounded-lg bg-white shadow-xl"
             style={{
               left: `${position.x + 16}px`, // Offset from cursor
               top: `${position.y + 16}px`,  // Offset from cursor

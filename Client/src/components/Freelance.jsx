@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 
 import { Sparkle, Play, Pause, ExternalLink } from 'lucide-react'
@@ -41,6 +42,36 @@ const Freelance = () => {
       }, 2000); // Hide overlay after 3 seconds of inactivity
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          const isMediumDevice = window.innerWidth >= 768; // Check if the device is medium or larger
+          const shouldPlay = isMediumDevice ? entry.intersectionRatio >= 0.5 : entry.intersectionRatio === 1;
+
+          if (shouldPlay) {
+            video.play();
+            setIsPlaying(true);
+          } else {
+            video.pause();
+            setIsPlaying(false);
+          }
+        }
+      });
+    }, { threshold: [0.5, 1] }); // Set thresholds for half and full visibility
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     return () => {

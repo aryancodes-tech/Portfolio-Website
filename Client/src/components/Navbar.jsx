@@ -1,8 +1,23 @@
 import { Link } from "react-scroll"
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null); // Reference for the dropdown
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="font-['Gilroy'] overflow-hidden p-5 w-full bg-[#f4f4f5]">
@@ -51,7 +66,7 @@ const Navbar = () => {
 
         {/* Dropdown Menu for small screens */}
         {isOpen && (
-          <div className="md:hidden bg-white shadow-md rounded-lg mt-2">
+          <div ref={dropdownRef} className="z-20 md:hidden text-center bg-white shadow-md rounded-lg mt-2 absolute right-5">
             <ul className="flex flex-col gap-2 p-3">
               {/* <li className="hover:cursor-pointer">ABOUT ME</li> */}
               <li className="hover:cursor-pointer">
