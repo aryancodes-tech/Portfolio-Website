@@ -103,7 +103,7 @@ const Freelance = () => {
       >
         <video 
           ref={videoRef} 
-          src="/freelance.mkv" 
+          src="/freelance.mp4" 
           className="w-full rounded-lg md:rounded-xl" 
           loop 
           muted 

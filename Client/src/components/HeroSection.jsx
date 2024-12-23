@@ -48,34 +48,54 @@ const SnowEffect = () => {
   
 const HeroSection = () => {
   return (
-    <div className="font-['Gilroy'] p-5 pt-0 w-full ">
-        <div className="relative py-12 overflow-hidden h-auto bg-white rounded-md md:rounded-lg flex flex-col justify-center items-center gap-5">
-            <SnowEffect />
-            <div className="z-10 bg-white backdrop-blur-xl border border-white rounded-full flex flex-col justify-center items-center gap-5">
-              <div className="absolute inset-0 -z-10 bg-white blur-3xl opacity-20"></div>
+    <div className="font-['Gilroy'] p-5 pt-0 w-full">
+      <div className="relative py-12 overflow-hidden h-auto bg-white rounded-md md:rounded-lg flex flex-col justify-center items-center gap-5">
+        <SnowEffect />
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="z-10 bg-white backdrop-blur-xl border border-white rounded-full flex flex-col justify-center items-center gap-5"
+        >
+          <div className="absolute inset-0 -z-10 bg-white blur-3xl opacity-20"></div>
 
-              <div className="relative w-40 h-40 bg-gray-500 rounded-full border-4 border-gray-200">
-                <img src="/photo.svg" className="w-full h-full rounded-full" />
-                <div className="absolute top-1/4 -right-[60px] md:-right-24 -rotate-3 rounded-full md:rounded-lg w-fit py-2 px-4 md:px-6 bg-black/80 font-bold text-white text-md md:text-xl flex flex-row items-center gap-2 hover:cursor-pointer">
-                  <span className="flex items-center flex-row gap-2 md:hidden">Hello! <Handshake /></span>
-                  <motion.a href="https://bit.ly/aryan-gupta-pdf" target="_blank" className="flex items-center flex-row gap-2 font-bold tracking-wide" whileHover={{ scale: 1.1 }}>
-                    <span className="hidden md:flex items-center flex-row gap-2">
-                        <FolderOpenDot strokeWidth={1.5} size={24}/>Résumé
-                    </span>
-                  </motion.a>
-                </div>
-              </div>
-              
-              <span className="name text-4xl sm:text-6xl PolySansMedium">
-                I&apos;m Aryan.
-              </span>
-              
-              <span className='designation text-center max-w-[400px] sm:max-w-[682px] text-2xl sm:text-4xl px-5 lowercase'>
-                front-end heavy software developer, specialized in building scalable, user-centric web apps that prioritizes requirements.
-              </span>
+          <motion.div 
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 260, damping: 20 }}
+            className="relative w-40 h-40 bg-gray-500 rounded-full border-4 border-gray-200"
+          >
+            <img src="/photo.svg" className="w-full h-full rounded-full" />
+            <div className="absolute top-1/4 -right-[60px] md:-right-24 -rotate-3 rounded-full md:rounded-lg w-fit py-2 px-4 md:px-6 bg-black/80 font-bold text-white text-md md:text-xl flex flex-row items-center gap-2 hover:cursor-pointer">
+              <span className="flex items-center flex-row gap-2 md:hidden">Hello! <Handshake /></span>
+              <motion.a href="https://bit.ly/aryan-gupta-pdf" target="_blank" className="flex items-center flex-row gap-2 font-bold tracking-wide" whileHover={{ scale: 1.1 }}>
+                <span className="hidden md:flex items-center flex-row gap-2">
+                    <FolderOpenDot strokeWidth={1.5} size={24}/>Résumé
+                </span>
+              </motion.a>
             </div>
-        </div>
+          </motion.div>
+          
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="name text-4xl sm:text-6xl PolySansMedium"
+          >
+            I&apos;m Aryan.
+          </motion.span>
+          
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className='designation text-center max-w-[400px] sm:max-w-[682px] text-2xl sm:text-4xl px-5 lowercase'
+          >
+            front-end heavy software developer, specialized in building scalable, user-centric web apps that prioritizes requirements.
+          </motion.span>
+        </motion.div>
       </div>
+    </div>
   )
 }
 

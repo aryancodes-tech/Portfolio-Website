@@ -1,26 +1,43 @@
 /* eslint-disable react/prop-types */
 import { Github, ArrowUpRight, Trophy } from 'lucide-react'
 import { useState, useCallback } from 'react'
+import { motion } from 'framer-motion';
 
 const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, externalLinkText, description, wonHackathon}) => {
   const [showPreview, setShowPreview] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   
   const handleMouseMove = useCallback((e) => {
-    // Get position relative to viewport
+    const rect = e.currentTarget.getBoundingClientRect()
     setPosition({
-      x: e.clientX,
-      y: e.clientY
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
     })
   }, [])
 
   return (
-    <div className="relative font-['Gilroy'] flex flex-col gap-8 w-full text-black rounded-xl py-6 px-4 md:p-8 border border-b-4 border-black/30 hover:border-black/60 hover:transition-colors">
+    <motion.div 
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="relative font-['Gilroy'] flex flex-col gap-8 w-full text-black rounded-xl py-6 px-4 md:p-8 border border-b-4 border-black/30 hover:border-black/60 hover:transition-colors"
+      style={{ zIndex: showPreview ? 50 : 0 }}
+    >
       
       {wonHackathon && (
-        <div className="absolute -top-5 md:-top-3 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 w-auto text-nowrap md:-right-3 bg-red-600 text-white px-4 py-1 rounded-xl text-sm md:text-lg font-bold shadow-lg flex flex-row items-center gap-2">
-          <Trophy size={20}/> Hackathon Winner
-        </div>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="absolute -top-5 md:-top-3 inset-x-0 mx-auto md:left-auto md:right-3 w-fit text-nowrap bg-red-600 text-white px-4 py-1 rounded-xl text-sm md:text-lg font-bold shadow-lg flex flex-row items-center gap-2"
+        >
+          <motion.div
+            animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <Trophy size={20}/>
+          </motion.div>
+          Hackathon Winner
+        </motion.div>
       )}
       
       <div className="flex flex-row justify-between items-center">
@@ -38,7 +55,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
         <span className="text-md md:text-lg PolySansSlim leading-tight text-gray-500">{description}</span>
       </div>
 
-      <div className="relative hover:text-blue-700">
+      <div className="relative">
         <a 
           href={externalLink} 
           target="_blank" 
@@ -46,9 +63,10 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           onMouseEnter={() => setShowPreview(true)}
           onMouseMove={handleMouseMove}
           onMouseLeave={() => setShowPreview(false)}
+          className="hover:text-blue-700"
         >
            <div className="PolySansNeutral text-gray-700 hover:cursor-pointer tracking-wide flex flex-row items-center gap-2 md:gap-4 text-md md:text-lg lg:text-xl">
-           { externalLinkText && <span className="">{externalLinkText}</span> }
+           { externalLinkText && <span>{externalLinkText}</span> }
             <span className="hidden md:block p-1 bg-black/10 rounded-full hover:scale-125 hover:transition-all">
               <ArrowUpRight strokeWidth={1.5} size={20}/>
             </span>
@@ -58,14 +76,13 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           </div> 
         </a>
 
-        {/* Preview Image/GIF */}
         {showPreview && (
           <div 
-            className="hidden sm:block fixed z-10 w-[400px] rounded-lg bg-white shadow-xl"
+            className="hidden sm:block absolute z-[999] w-[400px] rounded-lg bg-white shadow-xl"
             style={{
-              left: `${position.x + 16}px`, // Offset from cursor
-              top: `${position.y + 16}px`,  // Offset from cursor
-              pointerEvents: 'none'  // Prevent the preview from interfering with hover
+              left: `${position.x + 16}px`,
+              top: `${position.y + 16}px`,
+              pointerEvents: 'none'
             }}
           >
             <img
@@ -76,7 +93,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

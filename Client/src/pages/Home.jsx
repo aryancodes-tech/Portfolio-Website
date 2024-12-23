@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="content">
       <Navbar />
-      
+
       <HeroSection />
 
       <Element name="freelance">
