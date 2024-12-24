@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Github, ArrowUpRight, Trophy } from 'lucide-react'
+import { Github, ArrowUpRight, Trophy, Globe } from 'lucide-react'
 import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion';
 
-const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, externalLinkText, description, wonHackathon}) => {
+const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, externalLinkText, description, wonHackathon, isSaaS}) => {
   const [showPreview, setShowPreview] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   
@@ -42,12 +42,37 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
       
       <div className="flex flex-row justify-between items-center">
         <img src={source} className="w-24 md:h-10 md:w-40" alt={name}/>
-        <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden md:block hover:cursor-pointer">
-          <Github size={40}/>
-        </a>
-        <a href={githubLink} target="_blank" rel="noopener noreferrer" className="block md:hidden hover:cursor-pointer">
-          <Github size={24}/>
-        </a>
+        <div className='flex flex-row md:flex-col lg:flex-row justify-end gap-2'>
+        {isSaaS && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="absolute -top-5 md:-top-3 inset-x-0 mx-auto md:left-auto md:right-3 w-fit text-nowrap bg-purple-50 text-purple-800 border-2 border-purple-800 px-4 py-1 rounded-xl text-sm md:text-lg font-bold shadow-lg flex flex-row items-center gap-2"
+            >
+            <motion.div
+              animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              <span className='hidden md:block'><Globe size={20}/></span>
+              <span className='block md:hidden'><Globe size={16}/></span>
+            </motion.div>
+            Micro-SaaS
+          </motion.div>
+        )}
+        {
+          githubLink && 
+            <>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden md:block hover:cursor-pointer">
+                <Github size={40}/>
+              </a>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="block md:hidden hover:cursor-pointer">
+                <Github size={24}/>
+              </a>
+            </>
+        }
+        </div>
+        
       </div>
       
       <div className="flex flex-col gap-2">

@@ -5,14 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const projectsData = [
   {
-    source: "/project_logos/buzzvibe.svg",
-    imgPreview: "/project_images/buzzvibe.jpg",
-    name: "BuzzVibe - Social Media Application",
-    description: "A full-stack social platform featuring real-time updates, user interactions, and media sharing capabilities",
-    githubLink: "https://github.com/aryanploxxx/BuzzVibe-Social-Media-Application",
-    externalLink: "https://buzzvibe.aryancodes.tech",
-    externalLinkText: "buzzvibe.aryancodes.tech",
-    wonHackathon: false
+    source: "/project_logos/placementbuddy.svg",
+    imgPreview: "/project_images/placementbuddy.jpg",
+    name: "PlacementBuddy - JIIT's Placement Data",
+    description: "Access and analyze the past 2 years of placement data with advanced sorting, filtering, and interactive features.",
+    githubLink: "",
+    externalLink: "https://www.placementbuddy.pro/",
+    externalLinkText: "placementbuddy.pro",
+    wonHackathon: false,
+    isSaaS: true
   },
   {
     source: "/project_logos/widgetwall.png",
@@ -25,21 +26,23 @@ const projectsData = [
     wonHackathon: true
   },
   {
+    source: "/project_logos/buzzvibe.svg",
+    imgPreview: "/project_images/buzzvibe.jpg",
+    name: "BuzzVibe - Social Media Application",
+    description: "A full-stack social platform featuring real-time updates, user interactions, and media sharing capabilities",
+    githubLink: "https://github.com/aryanploxxx/BuzzVibe-Social-Media-Application",
+    externalLink: "https://buzzvibe.aryancodes.tech",
+    externalLinkText: "buzzvibe.aryancodes.tech",
+    wonHackathon: false
+  },
+  {
     source: "/project_logos/compilex.png",
     imgPreview: "/project_images/compilex.jpg",
     name: "CompileX - Online Coding Platform",
     description: "Interactive coding platform with real-time compilation, multiple language support, and collaborative features",
     githubLink: "https://github.com/pritpalcodes/CodeRaiders-Tally-Codebrewers-24",
-    externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-    wonHackathon: false
-  },
-  {
-    source: "/project_logos/kioskmeet.svg",
-    imgPreview: "/project_images/kioskmeet.jpg",
-    name: "KioskMeet - One Stop Campus Solution",
-    description: "Integrated campus management system streamlining student services, communications, and resource access",
-    githubLink: "https://github.com/aryanploxxx/KioskMeet-Minor-Project",
-    externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
+    externalLink: "https://compilex.aryancodes.tech",
+    externalLinkText: "compilex.aryancodes.tech",
     wonHackathon: false
   },
   {
@@ -50,6 +53,15 @@ const projectsData = [
     githubLink: "https://github.com/aryanploxxx/Jobs-Portal-React",
     externalLink: "https://jobspool.aryancodes.tech",
     externalLinkText: "jobspool.aryancodes.tech",
+    wonHackathon: false
+  },
+  {
+    source: "/project_logos/kioskmeet.svg",
+    imgPreview: "/project_images/kioskmeet.jpg",
+    name: "KioskMeet - One Stop Campus Solution",
+    description: "Integrated campus management system streamlining student services, communications, and resource access",
+    githubLink: "https://github.com/aryanploxxx/KioskMeet-Minor-Project",
+    externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
     wonHackathon: false
   },
   {
