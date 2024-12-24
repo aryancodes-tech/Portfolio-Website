@@ -15,7 +15,7 @@ const projectsData = [
     wonHackathon: false
   },
   {
-    source: "/project_logos/widgetwall.svg",
+    source: "/project_logos/widgetwall.png",
     imgPreview: "/project_images/widgetwall.jpg",
     name: "WidgetWall - Chrome Extension",
     description: "Browser extension for streamlined task management, time tracking, and productivity enhancement",
@@ -25,7 +25,7 @@ const projectsData = [
     wonHackathon: true
   },
   {
-    source: "/project_logos/compilex.svg",
+    source: "/project_logos/compilex.png",
     imgPreview: "/project_images/compilex.jpg",
     name: "CompileX - Online Coding Platform",
     description: "Interactive coding platform with real-time compilation, multiple language support, and collaborative features",
