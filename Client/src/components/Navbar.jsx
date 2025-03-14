@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Menu for small screens */}
-        <div className="md:hidden flex flex-col items-center justify-center">
+        <div className="lg:hidden flex flex-col items-center justify-center">
           <button 
             ref={buttonRef}
             onClick={handleMenuClick} 
@@ -64,8 +64,16 @@ const Navbar = () => {
         </div>
 
         {/* Links for larger screens */}
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <ul className="flex flex-row gap-5">
+            <li className="hover:cursor-pointer">
+              <Link to="education" smooth={true} duration={500}>EDUCATION</Link>
+            </li>
+            <li>/</li>
+            <li className="hover:cursor-pointer">
+              <Link to="experience" smooth={true} duration={500}>EXPERIENCE</Link>
+            </li>
+            <li>/</li>
             <li className="hover:cursor-pointer">
               <Link to="freelance" smooth={true} duration={500}>FREELANCE</Link>
             </li>
@@ -77,7 +85,7 @@ const Navbar = () => {
         </div>
 
         {/* CTA for larger screens */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
             <Link to="contactme" smooth={true} duration={500}>Contact Me</Link>
           </button>
@@ -88,9 +96,29 @@ const Navbar = () => {
       {isOpen && (
         <div 
           ref={menuRef} 
-          className="z-20 md:hidden text-center bg-white shadow-md rounded-lg mt-2 absolute right-5"
+          className="z-20 lg:hidden text-center bg-white shadow-md rounded-lg mt-2 absolute right-5"
         >
           <ul className="flex flex-col gap-2 p-3">
+            <li className="hover:cursor-pointer">
+              <Link 
+                to="education" 
+                smooth={true} 
+                duration={500}
+                onClick={handleLinkClick}
+              >
+                EDUCATION
+              </Link>
+            </li>
+            <li className="hover:cursor-pointer">
+              <Link 
+                to="experience" 
+                smooth={true} 
+                duration={500}
+                onClick={handleLinkClick}
+              >
+                EXPERIENCE
+              </Link>
+            </li>
             <li className="hover:cursor-pointer">
               <Link 
                 to="freelance" 

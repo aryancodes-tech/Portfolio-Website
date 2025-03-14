@@ -45,34 +45,34 @@ const projectsData = [
     externalLinkText: "compilex.aryancodes.tech",
     wonHackathon: false
   },
-  {
-    source: "/project_logos/jobspool.svg",
-    imgPreview: "/project_images/jobspool.jpg",
-    name: "JobsPool - Job Search Platform",
-    description: "Comprehensive job search platform connecting candidates with employers, featuring smart matching and filters",
-    githubLink: "https://github.com/aryanploxxx/Jobs-Portal-React",
-    externalLink: "https://jobspool.aryancodes.tech",
-    externalLinkText: "jobspool.aryancodes.tech",
-    wonHackathon: false
-  },
-  {
-    source: "/project_logos/kioskmeet.svg",
-    imgPreview: "/project_images/kioskmeet.jpg",
-    name: "KioskMeet - One Stop Campus Solution",
-    description: "Integrated campus management system streamlining student services, communications, and resource access",
-    githubLink: "https://github.com/aryanploxxx/KioskMeet-Minor-Project",
-    externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-    wonHackathon: false
-  },
-  {
-    source: "/project_logos/squadspeak.svg",
-    imgPreview: "/project_images/squadspeak.jpg",
-    name: "SquadSpeak - Chatting Application",
-    description: "Real-time messaging application with group chats, file sharing, and encrypted communication",
-    githubLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-    externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-    wonHackathon: false
-  }
+  // {
+  //   source: "/project_logos/jobspool.svg",
+  //   imgPreview: "/project_images/jobspool.jpg",
+  //   name: "JobsPool - Job Search Platform",
+  //   description: "Comprehensive job search platform connecting candidates with employers, featuring smart matching and filters",
+  //   githubLink: "https://github.com/aryanploxxx/Jobs-Portal-React",
+  //   externalLink: "https://jobspool.aryancodes.tech",
+  //   externalLinkText: "jobspool.aryancodes.tech",
+  //   wonHackathon: false
+  // },
+  // {
+  //   source: "/project_logos/kioskmeet.svg",
+  //   imgPreview: "/project_images/kioskmeet.jpg",
+  //   name: "KioskMeet - One Stop Campus Solution",
+  //   description: "Integrated campus management system streamlining student services, communications, and resource access",
+  //   githubLink: "https://github.com/aryanploxxx/KioskMeet-Minor-Project",
+  //   externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
+  //   wonHackathon: false
+  // },
+  // {
+  //   source: "/project_logos/squadspeak.svg",
+  //   imgPreview: "/project_images/squadspeak.jpg",
+  //   name: "SquadSpeak - Chatting Application",
+  //   description: "Real-time messaging application with group chats, file sharing, and encrypted communication",
+  //   githubLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
+  //   externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
+  //   wonHackathon: false
+  // }
 ]
 
 const Projects = () => {

@@ -152,7 +152,7 @@ const Freelance = () => {
                   This website is a collection of about 48 pages and was developed in the time frame of 1.5 months!
                 </p>
                 <motion.a
-                  href="https://itel-india.aryancodes.tech/"
+                  href="https://itel-mobile-aryan.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white px-10 py-2 rounded-full inline-flex items-center gap-2 text-black hover:text-blue-600 transition-colors"
@@ -206,7 +206,7 @@ const Freelance = () => {
                 This website is a collection of about 48 pages and was developed in the time frame of 1.5 months!
             </p>
             <motion.a
-                href="https://itel-india.aryancodes.tech/"
+                href="https://itel-mobile-aryan.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" px-10 py-2 rounded-full inline-flex items-center gap-2 bg-black text-white hover:text-blue-600 transition-colors"

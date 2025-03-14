@@ -19,7 +19,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
     <motion.div 
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="relative font-['Gilroy'] flex flex-col gap-8 w-full text-black rounded-xl py-6 px-4 md:p-8 border border-b-4 border-black/30 hover:border-black/60 hover:transition-colors"
+      className="bg-white relative font-['Gilroy'] flex flex-col gap-8 w-full text-black rounded-xl py-6 px-4 md:p-8 border border-b-4 border-black/30 hover:border-black/60 hover:transition-colors"
       style={{ zIndex: showPreview ? 50 : 0 }}
     >
       

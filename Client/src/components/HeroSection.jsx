@@ -68,7 +68,7 @@ const HeroSection = () => {
             <img src="/photo.svg" className="w-full h-full rounded-full" />
             <div className="absolute top-1/4 -right-[60px] md:-right-24 -rotate-3 rounded-full md:rounded-lg w-fit py-2 px-4 md:px-6 bg-black/80 font-bold text-white text-md md:text-xl flex flex-row items-center gap-2 hover:cursor-pointer">
               <span className="flex items-center flex-row gap-2 md:hidden">Hello! <Handshake /></span>
-              <motion.a href="https://bit.ly/aryan-gupta-pdf" target="_blank" className="flex items-center flex-row gap-2 font-bold tracking-wide" whileHover={{ scale: 1.1 }}>
+              <motion.a href="https://aryancodes.tech/resume" target="_blank" className="flex items-center flex-row gap-2 font-bold tracking-wide" whileHover={{ scale: 1.1 }}>
                 <span className="hidden md:flex items-center flex-row gap-2">
                     <FolderOpenDot strokeWidth={1.5} size={24}/>Résumé
                 </span>
@@ -80,18 +80,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="name text-4xl sm:text-6xl PolySansMedium"
+            className="name text-3xl sm:text-6xl PolySansMedium"
           >
-            I&apos;m Aryan.
+            I&apos;m Aryan Gupta.
           </motion.span>
           
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className='designation text-center max-w-[400px] sm:max-w-[682px] text-2xl sm:text-4xl px-5 lowercase'
+            className='designation text-center max-w-[400px] sm:max-w-[682px] text-xl sm:text-4xl px-5 lowercase'
           >
-            front-end heavy software developer, specialized in building scalable, user-centric web apps that prioritizes requirements.
+            backend heavy software developer, specialized in building scalable, user-centric web apps that prioritizes requirements.
           </motion.span>
         </motion.div>
       </div>
