@@ -28,10 +28,10 @@ const Home = () => {
       <Element name="experience">
         <Experience />
       </Element>
-
+{/* 
       <Element name="freelance">
         <Freelance />  
-      </Element>
+      </Element> */}
 
       <Element name="projects">
         <Projects />  
