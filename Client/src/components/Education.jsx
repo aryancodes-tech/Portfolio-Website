@@ -8,7 +8,7 @@ const educationData = [
     field: "Information Technology (IT)",
     duration: "2021 - 2025",
     website: "https://www.jiit.ac.in",
-    cgpa: "8.0 / 10",
+    cgpa: "8.1 / 10",
     highlights: [
       "Data Structures & Algorithms",
       "Operating Systems",

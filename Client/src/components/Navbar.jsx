@@ -74,10 +74,10 @@ const Navbar = () => {
               <Link to="experience" smooth={true} duration={500}>EXPERIENCE</Link>
             </li>
             <li>/</li>
-            <li className="hover:cursor-pointer">
+            {/* <li className="hover:cursor-pointer">
               <Link to="freelance" smooth={true} duration={500}>FREELANCE</Link>
-            </li>
-            <li>/</li>
+            </li> */}
+            {/* <li>/</li> */}
             <li className="hover:cursor-pointer">
               <Link to="projects" smooth={true} duration={500}>PROJECTS</Link>
             </li>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 EXPERIENCE
               </Link>
             </li>
-            <li className="hover:cursor-pointer">
+            {/* <li className="hover:cursor-pointer">
               <Link 
                 to="freelance" 
                 smooth={true} 
@@ -128,7 +128,7 @@ const Navbar = () => {
               >
                 FREELANCE
               </Link>
-            </li>
+            </li> */}
             <li className="hover:cursor-pointer">
               <Link 
                 to="projects" 

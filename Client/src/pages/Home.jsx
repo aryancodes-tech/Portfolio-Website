@@ -16,7 +16,7 @@ import PositionsOfResponsibility from "../components/PositionsOfResponsibility"
 
 const Home = () => {
   return (
-    <div className="content">
+    <main className="content" role="main" aria-label="Aryan Gupta portfolio">
       <Navbar />
 
       <HeroSection />
@@ -46,7 +46,7 @@ const Home = () => {
       </Element>
 
       <ResumeButton />
-    </div>
+    </main>
   )
 }
 

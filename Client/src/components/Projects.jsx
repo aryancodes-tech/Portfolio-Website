@@ -10,8 +10,8 @@ const projectsData = [
     name: "PlacementBuddy - JIIT's Placement Data",
     description: "Access and analyze the past 2 years of placement data with advanced sorting, filtering, and interactive features.",
     githubLink: "",
-    externalLink: "https://www.placementbuddy.pro/",
-    externalLinkText: "placementbuddy.pro",
+    externalLink: "https://placementbuddy.aryancodes.tech/",
+    externalLinkText: "placementbuddy.aryancodes.tech",
     wonHackathon: false,
     isSaaS: true
   },
@@ -20,31 +20,31 @@ const projectsData = [
     imgPreview: "/project_images/widgetwall.jpg",
     name: "WidgetWall - Chrome Extension",
     description: "Browser extension for streamlined task management, time tracking, and productivity enhancement",
-    githubLink: "https://github.com/aryanploxxx/WidgetWall-Chrome-Extension",
+    githubLink: "https://github.com/aryancodes-tech/WidgetWall-Chrome-Extension",
     externalLink: "https://widgetwall.aryancodes.tech",
     externalLinkText: "widgetwall.aryancodes.tech",
     wonHackathon: true
   },
-  {
-    source: "/project_logos/buzzvibe.svg",
-    imgPreview: "/project_images/buzzvibe.jpg",
-    name: "BuzzVibe - Social Media Application",
-    description: "A full-stack social platform featuring real-time updates, user interactions, and media sharing capabilities",
-    githubLink: "https://github.com/aryanploxxx/BuzzVibe-Social-Media-Application",
-    externalLink: "https://buzzvibe.aryancodes.tech",
-    externalLinkText: "buzzvibe.aryancodes.tech",
-    wonHackathon: false
-  },
-  {
-    source: "/project_logos/compilex.png",
-    imgPreview: "/project_images/compilex.jpg",
-    name: "CompileX - Online Coding Platform",
-    description: "Interactive coding platform with real-time compilation, multiple language support, and collaborative features",
-    githubLink: "https://github.com/pritpalcodes/CodeRaiders-Tally-Codebrewers-24",
-    externalLink: "https://compilex.aryancodes.tech",
-    externalLinkText: "compilex.aryancodes.tech",
-    wonHackathon: false
-  },
+  // {
+  //   source: "/project_logos/buzzvibe.svg",
+  //   imgPreview: "/project_images/buzzvibe.jpg",
+  //   name: "BuzzVibe - Social Media Application",
+  //   description: "A full-stack social platform featuring real-time updates, user interactions, and media sharing capabilities",
+  //   githubLink: "https://github.com/aryancodes-tech/BuzzVibe-Social-Media-Application",
+  //   externalLink: "https://buzzvibe.aryancodes.tech",
+  //   externalLinkText: "buzzvibe.aryancodes.tech",
+  //   wonHackathon: false
+  // },
+  // {
+  //   source: "/project_logos/compilex.png",
+  //   imgPreview: "/project_images/compilex.jpg",
+  //   name: "CompileX - Online Coding Platform",
+  //   description: "Interactive coding platform with real-time compilation, multiple language support, and collaborative features",
+  //   githubLink: "https://github.com/pritpalcodes/CodeRaiders-Tally-Codebrewers-24",
+  //   externalLink: "https://compilex.aryancodes.tech",
+  //   externalLinkText: "compilex.aryancodes.tech",
+  //   wonHackathon: false
+  // },
   // {
   //   source: "/project_logos/jobspool.svg",
   //   imgPreview: "/project_images/jobspool.jpg",
@@ -118,23 +118,23 @@ const Projects = () => {
 
   return (
     <div id="projects" className="flex flex-col flex-wrap justify-center items-left gap-5 p-5">
-      <motion.span 
+      <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
         className="hidden md:flex text-4xl font-bold flex-row gap-2 items-center"
       >
         <Sparkle strokeWidth={1.5} size={36}/> Projects
-      </motion.span>
+      </motion.h2>
 
-      <motion.span 
+      <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
         className="flex md:hidden text-2xl font-bold flex-row gap-2 items-center"
       >
         <Sparkle strokeWidth={1.5} size={24}/> Projects
-      </motion.span>
+      </motion.h2>
 
       <motion.div 
         variants={container}

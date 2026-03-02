@@ -5,35 +5,53 @@ const experiences = [
   {
     company: "Omniful AI",
     logo: "/omniful.png",
-    position: "Software Developer Intern",
-    duration: <b>Jan 2023 - Present</b>,
+    position: "SDE - I (Warehouse Management System)",
+    duration: <b>July 2025 - Present</b>,
     website: "https://omniful.ai",
     description: <>
       <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
-        <li>Reduced API response time from <b>8ms to 2ms</b>, scaling daily order processing from <b>20K+ to 50K+</b> orders.</li>
-        <li>Enhanced UX for <b>21,000+ entities</b> using <b>Firebase Cloud Messaging</b> to improve cross-device communication.</li>
-        <li>Maintained <b>3 microservices with</b> <b>AWS CloudWatch</b> and <b>New Relic</b> for real-time monitoring, logging, and rapid issue resolution.</li>
-        <li>Implemented <b>Redis locking</b> to prevent failures and handle parallel requests on the same resource.</li>
+        <li>Reduced search latency by <b>75% (20ms to 5ms)</b> utilizing <b>PostgreSQL Full-Text Search (tsvector/tsquery)</b> and advanced indexing (B-Tree, GiST, n-gram).</li>
+        <li>Designed and enforced <b>multi-tenant RBAC authorization</b>, preventing cross-tenant data exposure and securing <b>450+ API endpoints</b>.</li>
+        <li>Built end-to-end <b>Packaging Materials Inventory System</b>, enabling packaging material selection during packing and tracking life cycle of inventory from inwarding to order consumption.</li>
+        <li>Implemented <b>Fixed-Bucket Rate Limiting</b> on 10+ public APIs, reducing abuse during traffic spikes.</li>
+        <li>Architected <b>idempotent Wave & Picklist Generation Algorithms</b> ensuring exactly-once execution across distributed warehouse operations.</li>
+        <li>Led a <b>2+ engineer backend team</b>, owning design decisions, reviewing PRs, and running KT sessions.</li>
+        <li>Built a common input sanitisation library, mitigating <b>HTML & SQL injection risks</b> across multiple backend modules.</li>
+        <li>Worked on <b>index and query optimizations</b> in core WMS modules including Cycle Count, Serialised SKUs, Hub/Location Based Inventory and Picklists.</li>
       </ul>
     </>,
     techStack: ["Golang", "PostgreSQL", "AWS", "Redis", "Docker", "Kafka"]
   },
   {
-    company: "Bezt Labs | Abouv",
+    company: "Omniful AI",
+    logo: "/omniful.png",
+    position: "SDE Intern",
+    duration: <b>January 2025 - July 2025</b>,
+    website: "https://omniful.ai",
+    description: <>
+      <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
+        <li>Reduced API response time from <b>1,400ms to 8ms</b>, scaling the daily processing from <b>20K+ to 50K+</b> orders.</li>
+        <li>Enhanced UX of <b>21,000+ entities</b> leveraging <b>Firebase Cloud Messaging</b> to improve cross-device communication.</li>
+        <li>Implemented <b>Redis Locks</b> to prevent failures, handling parallel requests on the same resource.</li>
+        <li>Maintained <b>3 Microservices</b>, implementing DB-level logging with <b>AWS Cloudwatch and Newrelic</b> for real-time monitoring, logging, and rapid resolution of production issues.</li>
+      </ul>
+    </>,
+    techStack: ["Golang", "PostgreSQL", "AWS", "Redis", "Docker", "Kafka"]
+  },
+  {
+    company: "Bezt Labs",
     logo: "/beztlabs.jpeg",
     position: "Full Stack Developer Intern",
-    duration: <b>Oct 2023 - Dec 2023</b>,
+    duration: <b>October 2024 - December 2024</b>,
     website: "https://abouv.com",
     description: <>
       <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
         <li><b>Cut follow-up time by 50%</b> with a <b>Google Sheets API</b> powered automated lead pipeline for real-time tracking.</li>
-        <li><b>Boosted page load speed by 30%</b> with responsive web design and seamless team collaboration.</li>
-        <li>Researched and integrated UPI payments workflow to enhance the Rewards module, collaborating with backend teams for secure transactions.</li>
+        <li><b>Boosted page load speed by 30%</b> by constructing highly responsive web-pages with effective communication from design team.</li>
       </ul>
     </>,
     techStack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "TailwindCSS", "Docker"]
   }
-  // Add more experiences as needed
 ];
 
 const Experience = () => {

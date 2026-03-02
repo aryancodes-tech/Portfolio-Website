@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 function RedirectToResume() {
   useEffect(() => {
-    window.location.href = "https://drive.google.com/file/d/1nWL9SEC0hd5jT9fvi7fEfGCM88s5AnXT/view";
+    window.location.href = "https://drive.google.com/file/d/1fxvjQcduLKS4ewpOm_j__fUBywM902mD/view?usp=sharing";
   }, []);
   return null;
 }

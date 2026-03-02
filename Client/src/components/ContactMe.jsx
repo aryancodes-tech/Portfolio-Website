@@ -42,9 +42,9 @@ const ContactMe = () => {
         viewport={{ once: true }}
         className='py-[120px] flex flex-col justify-center gap-7 items-center'
       >
-        <p className="text-3xl md:text-5xl flex flex-row justify-center items-center text-[#f5f5f4] ">
+        <h2 className="text-3xl md:text-5xl flex flex-row justify-center items-center text-[#f5f5f4] ">
           Contact Me
-        </p>
+        </h2>
         
         <p className='contact-me-description max-w-[300px] sm:max-w-[500px] text-white text-2xl text-center tracking-normal leading-loose'>
           Have questions, ideas, or proposals? <br/>Let&apos;s team up and create something remarkable!
@@ -52,9 +52,9 @@ const ContactMe = () => {
         
         <div className='emailClass px-2 sm:px-5 py-1 sm:py-3 m-5 bg-white rounded-lg sm:rounded-xl hover:cursor-text flex flex-row items-center'>
           <span className='font-semibold'>email:</span> &nbsp; 
-          <span className='mr-5'>aryangupta8291@gmail.com</span>
+          <span className='mr-5'>aryancodes.tech@gmail.com</span>
           <span>
-            <CopyToClipboardButton content="aryangupta8291@gmail.com"/>
+            <CopyToClipboardButton content="aryancodes.tech@gmail.com"/>
           </span>
         </div>
 
@@ -66,13 +66,13 @@ const ContactMe = () => {
           className='socials-container flex flex-row gap-5 text-5xl mb-5'
         >
           <motion.div variants={itemVariant}>
-            <a href="https://github.com/aryanploxxx" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/aryancodes-tech" target="_blank" rel="noopener noreferrer">
               <FaGithub className='text-white hover:text-[#f5f5f4] transition-all'/>
             </a>
           </motion.div>
           
           <motion.div variants={itemVariant}>
-            <a href="https://linkedin.com/in/aryanploxxx" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/aryancodes-tech" target="_blank" rel="noopener noreferrer">
               <IoLogoLinkedin className='text-white hover:text-[#f5f5f4] transition-all'/>
             </a>
           </motion.div>
