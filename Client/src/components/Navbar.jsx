@@ -55,7 +55,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="lg:hidden">
+        {/* Anchor dropdown to the hamburger so it lines up on narrow viewports */}
+        <div className="relative shrink-0 lg:hidden">
           <button
             ref={buttonRef}
             type="button"
@@ -66,6 +67,37 @@ const Navbar = () => {
           >
             <Menu size={22} strokeWidth={2} />
           </button>
+
+          {isOpen && (
+            <div
+              ref={menuRef}
+              role="dialog"
+              aria-label="Navigation menu"
+              className="absolute right-0 top-full z-30 mt-2 w-[min(280px,calc(100vw-1.5rem))] origin-top-right rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-4 shadow-[8px_8px_0_hsl(var(--ink)/0.12)]"
+            >
+              <ul className="flex flex-col gap-3 text-center">
+                <li className={linkClass}>
+                  <Link to="education" smooth duration={500} onClick={handleLinkClick}>Education</Link>
+                </li>
+                <li className={linkClass}>
+                  <Link to="experience" smooth duration={500} onClick={handleLinkClick}>Experience</Link>
+                </li>
+                <li className={linkClass}>
+                  <Link to="projects" smooth duration={500} onClick={handleLinkClick}>Projects</Link>
+                </li>
+                <li className="pt-2">
+                  <button
+                    type="button"
+                    className="w-full rounded-xl bg-[hsl(var(--ink))] py-3 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[4px_4px_0_hsl(var(--signal))]"
+                  >
+                    <Link to="contactme" smooth duration={500} onClick={handleLinkClick}>
+                      Contact
+                    </Link>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         <nav className="hidden lg:block" aria-label="Primary">
@@ -94,35 +126,6 @@ const Navbar = () => {
           </ul>
         </nav>
       </div>
-
-      {isOpen && (
-        <div
-          ref={menuRef}
-          className="absolute right-3 top-[5.25rem] z-20 w-[min(100%,280px)] rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-4 shadow-[8px_8px_0_hsl(var(--ink)/0.12)] lg:hidden"
-        >
-          <ul className="flex flex-col gap-3 text-center">
-            <li className={linkClass}>
-              <Link to="education" smooth duration={500} onClick={handleLinkClick}>Education</Link>
-            </li>
-            <li className={linkClass}>
-              <Link to="experience" smooth duration={500} onClick={handleLinkClick}>Experience</Link>
-            </li>
-            <li className={linkClass}>
-              <Link to="projects" smooth duration={500} onClick={handleLinkClick}>Projects</Link>
-            </li>
-            <li className="pt-2">
-              <button
-                type="button"
-                className="w-full rounded-xl bg-[hsl(var(--ink))] py-3 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[4px_4px_0_hsl(var(--signal))]"
-              >
-                <Link to="contactme" smooth duration={500} onClick={handleLinkClick}>
-                  Contact
-                </Link>
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
     </motion.header>
   )
 }

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
  */
 const HeroSection = () => {
   return (
-    <div className="w-full px-1 sm:px-2 pt-2 pb-4">
+    <div className="w-full px-1 sm:px-2 pt-8 pb-2">
       <section className="surface-card relative overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-6 sm:p-10 md:p-14 lg:p-16">
         <div className="hero-grid-bg pointer-events-none absolute inset-0 opacity-[0.65]" aria-hidden />
         <div className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[hsl(var(--signal)/0.12)] blur-3xl" aria-hidden />
@@ -19,7 +19,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               className="font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase"
             >
-              Backend · Golang · Systems
+              Backend · Golang · System Design
             </motion.p>
 
             <motion.h1
@@ -58,7 +58,7 @@ const HeroSection = () => {
                 Résumé
               </a>
               <span className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
-                /omniful · shipping in prod
+                · shipping in prod at 3 am
               </span>
             </motion.div>
           </div>

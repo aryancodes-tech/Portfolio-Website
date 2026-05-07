@@ -11,12 +11,12 @@ const experiences = [
     website: "https://omniful.ai",
     description: <>
       <ul className="list-disc space-y-2 pl-5 text-[hsl(var(--muted-foreground))] marker:text-[hsl(var(--signal-deep))]">
+        <li>Led a <b className="text-[hsl(var(--ink))]">2+ engineer backend team</b>, owning design decisions, reviewing PRs, and running KT sessions.</li>
         <li>Reduced search latency by <b className="text-[hsl(var(--ink))]">75% (20ms to 5ms)</b> utilizing <b className="text-[hsl(var(--ink))]">PostgreSQL Full-Text Search (tsvector/tsquery)</b> and advanced indexing (B-Tree, GiST, n-gram).</li>
         <li>Designed and enforced <b className="text-[hsl(var(--ink))]">multi-tenant RBAC authorization</b>, preventing cross-tenant data exposure and securing <b className="text-[hsl(var(--ink))]">450+ API endpoints</b>.</li>
         <li>Built end-to-end <b className="text-[hsl(var(--ink))]">Packaging Materials Inventory System</b>, enabling packaging material selection during packing and tracking life cycle of inventory from inwarding to order consumption.</li>
         <li>Implemented <b className="text-[hsl(var(--ink))]">Fixed-Bucket Rate Limiting</b> on 10+ public APIs, reducing abuse during traffic spikes.</li>
         <li>Architected <b className="text-[hsl(var(--ink))]">idempotent Wave & Picklist Generation Algorithms</b> ensuring exactly-once execution across distributed warehouse operations.</li>
-        <li>Led a <b className="text-[hsl(var(--ink))]">2+ engineer backend team</b>, owning design decisions, reviewing PRs, and running KT sessions.</li>
         <li>Built a common input sanitisation library, mitigating <b className="text-[hsl(var(--ink))]">HTML & SQL injection risks</b> across multiple backend modules.</li>
         <li>Worked on <b className="text-[hsl(var(--ink))]">index and query optimizations</b> in core WMS modules including Cycle Count, Serialised SKUs, Hub/Location Based Inventory and Picklists.</li>
       </ul>
