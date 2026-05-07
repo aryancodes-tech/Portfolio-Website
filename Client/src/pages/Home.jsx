@@ -6,7 +6,6 @@ import HeroSection from "../components/HeroSection"
 // import AboutMe from "../components/AboutMe"
 import ContactMe from "../components/ContactMe"
 import Projects from "../components/Projects"
-import Freelance from "../components/Freelance"
 import ResumeButton from "../components/ResumeButton"
 import { Element } from "react-scroll"
 import Experience from "../components/Experience"
@@ -16,7 +15,7 @@ import PositionsOfResponsibility from "../components/PositionsOfResponsibility"
 
 const Home = () => {
   return (
-    <main className="content" role="main" aria-label="Aryan Gupta portfolio">
+    <main className="content site-shell pb-16" role="main" aria-label="Aryan Gupta portfolio">
       <Navbar />
 
       <HeroSection />

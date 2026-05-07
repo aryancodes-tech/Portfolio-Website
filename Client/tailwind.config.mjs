@@ -7,12 +7,22 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			display: ['Syne', 'system-ui', 'sans-serif'],
+  			mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			ink: 'hsl(var(--ink))',
+  			paper: 'hsl(var(--paper))',
+  			surface: 'hsl(var(--surface))',
+  			signal: 'hsl(var(--signal))',
+  			'signal-deep': 'hsl(var(--signal-deep))',
+  			border: 'hsl(var(--border))',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -43,7 +53,6 @@ export default {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
-  			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			chart: {

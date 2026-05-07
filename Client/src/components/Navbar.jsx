@@ -1,7 +1,7 @@
 import { Link } from "react-scroll"
 import { useState, useEffect, useRef } from "react"
 import { Menu } from "lucide-react"
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,11 +10,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Check if click is outside both the menu and the button
       if (
-        menuRef.current && 
+        menuRef.current &&
         !menuRef.current.contains(event.target) &&
-        buttonRef.current && 
+        buttonRef.current &&
         !buttonRef.current.contains(event.target)
       ) {
         setIsOpen(false)
@@ -35,126 +34,96 @@ const Navbar = () => {
     setIsOpen(false)
   }
 
+  const linkClass =
+    "font-mono text-[11px] tracking-[0.12em] uppercase text-[hsl(var(--ink))] transition-colors hover:text-[hsl(var(--signal-deep))] cursor-pointer"
+
   return (
-    <motion.div 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className="font-['Gilroy'] overflow-hidden p-5 w-full bg-[#f4f4f5]"
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 140, damping: 22 }}
+      className="sticky top-0 z-50 px-3 pt-4 pb-2 sm:px-5"
     >
-      <div className="px-3 md:px-6 lg:px-10 flex flex-row justify-between items-center navbar h-16 w-full rounded-md md:rounded-lg bg-white shadow-md">
-        {/* Monogram */}
-        <div className="flex flex-row justify-between gap-2 items-center">
-          <img src="/ag_black.svg" className="w-12 rounded-lg" alt="Logo"/>
-          <p className="text-2xl uppercase flex flex-col leading-none tracking-normal">
-            <span className="font-light">Aryan</span>{" "}
-            <span className="font-bold">Gupta</span> 
-          </p>
+      <div className="content flex flex-row items-center justify-between gap-4 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))]/95 px-4 py-3 shadow-[6px_6px_0_hsl(var(--signal)/0.25)] backdrop-blur-md md:px-6">
+        <div className="flex min-w-0 items-center gap-3">
+          <img src="/ag_black.svg" className="h-11 w-11 shrink-0 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] p-1.5" alt="Aryan Gupta monogram" />
+          <div className="flex min-w-0 flex-col leading-none">
+            <span className="font-display truncate text-lg font-bold tracking-tight text-[hsl(var(--ink))] sm:text-xl">Aryan Gupta</span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-[hsl(var(--muted-foreground))]">
+              portfolio
+            </span>
+          </div>
         </div>
 
-        {/* Hamburger Menu for small screens */}
-        <div className="lg:hidden flex flex-col items-center justify-center">
-          <button 
+        <div className="lg:hidden">
+          <button
             ref={buttonRef}
-            onClick={handleMenuClick} 
-            className="focus:outline-none"
+            type="button"
+            onClick={handleMenuClick}
+            className="rounded-lg border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] p-2 text-[hsl(var(--ink))] transition-colors hover:bg-[hsl(var(--signal)/0.12)]"
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
           >
-            <Menu />
+            <Menu size={22} strokeWidth={2} />
           </button>
         </div>
 
-        {/* Links for larger screens */}
-        <div className="hidden lg:flex">
-          <ul className="flex flex-row gap-5">
-            <li className="hover:cursor-pointer">
-              <Link to="education" smooth={true} duration={500}>EDUCATION</Link>
+        <nav className="hidden lg:block" aria-label="Primary">
+          <ul className="flex flex-row flex-wrap items-center gap-x-1 gap-y-2">
+            <li className={linkClass}>
+              <Link to="education" smooth duration={500}>Education</Link>
             </li>
-            <li>/</li>
-            <li className="hover:cursor-pointer">
-              <Link to="experience" smooth={true} duration={500}>EXPERIENCE</Link>
+            <li className="px-2 font-mono text-[hsl(var(--border))]" aria-hidden>·</li>
+            <li className={linkClass}>
+              <Link to="experience" smooth duration={500}>Experience</Link>
             </li>
-            <li>/</li>
-            {/* <li className="hover:cursor-pointer">
-              <Link to="freelance" smooth={true} duration={500}>FREELANCE</Link>
-            </li> */}
-            {/* <li>/</li> */}
-            <li className="hover:cursor-pointer">
-              <Link to="projects" smooth={true} duration={500}>PROJECTS</Link>
+            <li className="px-2 font-mono text-[hsl(var(--border))]" aria-hidden>·</li>
+            <li className={linkClass}>
+              <Link to="projects" smooth duration={500}>Projects</Link>
+            </li>
+            <li className="pl-6">
+              <button
+                type="button"
+                className="rounded-xl bg-[hsl(var(--ink))] px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[4px_4px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
+              >
+                <Link to="contactme" smooth duration={500}>
+                  Contact
+                </Link>
+              </button>
             </li>
           </ul>
-        </div>
-
-        {/* CTA for larger screens */}
-        <div className="hidden lg:block">
-          <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
-            <Link to="contactme" smooth={true} duration={500}>Contact Me</Link>
-          </button>
-        </div>
+        </nav>
       </div>
 
-      {/* Dropdown Menu for small screens */}
       {isOpen && (
-        <div 
-          ref={menuRef} 
-          className="z-20 lg:hidden text-center bg-white shadow-md rounded-lg mt-2 absolute right-5"
+        <div
+          ref={menuRef}
+          className="absolute right-3 top-[5.25rem] z-20 w-[min(100%,280px)] rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-4 shadow-[8px_8px_0_hsl(var(--ink)/0.12)] lg:hidden"
         >
-          <ul className="flex flex-col gap-2 p-3">
-            <li className="hover:cursor-pointer">
-              <Link 
-                to="education" 
-                smooth={true} 
-                duration={500}
-                onClick={handleLinkClick}
-              >
-                EDUCATION
-              </Link>
+          <ul className="flex flex-col gap-3 text-center">
+            <li className={linkClass}>
+              <Link to="education" smooth duration={500} onClick={handleLinkClick}>Education</Link>
             </li>
-            <li className="hover:cursor-pointer">
-              <Link 
-                to="experience" 
-                smooth={true} 
-                duration={500}
-                onClick={handleLinkClick}
-              >
-                EXPERIENCE
-              </Link>
+            <li className={linkClass}>
+              <Link to="experience" smooth duration={500} onClick={handleLinkClick}>Experience</Link>
             </li>
-            {/* <li className="hover:cursor-pointer">
-              <Link 
-                to="freelance" 
-                smooth={true} 
-                duration={500}
-                onClick={handleLinkClick}
-              >
-                FREELANCE
-              </Link>
-            </li> */}
-            <li className="hover:cursor-pointer">
-              <Link 
-                to="projects" 
-                smooth={true} 
-                duration={500}
-                onClick={handleLinkClick}
-              >
-                PROJECTS
-              </Link>
+            <li className={linkClass}>
+              <Link to="projects" smooth duration={500} onClick={handleLinkClick}>Projects</Link>
             </li>
-            <li>
-              <button className="py-2 bg-gradient-to-t from-black to-blue-900 text-white font-semibold px-5 rounded-lg shadow-md">
-                <Link 
-                  to="contactme" 
-                  smooth={true} 
-                  duration={500}
-                  onClick={handleLinkClick}
-                >
-                  Contact Me
+            <li className="pt-2">
+              <button
+                type="button"
+                className="w-full rounded-xl bg-[hsl(var(--ink))] py-3 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[4px_4px_0_hsl(var(--signal))]"
+              >
+                <Link to="contactme" smooth duration={500} onClick={handleLinkClick}>
+                  Contact
                 </Link>
               </button>
             </li>
           </ul>
         </div>
       )}
-    </motion.div>
+    </motion.header>
   )
 }
 

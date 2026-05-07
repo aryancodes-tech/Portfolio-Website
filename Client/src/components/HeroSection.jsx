@@ -1,100 +1,92 @@
-import { FolderOpenDot, Handshake } from "lucide-react"
-import { useEffect } from "react";
-import { motion } from 'framer-motion';
+import { FolderOpenDot } from "lucide-react"
+import { motion } from 'framer-motion'
 
-const SnowEffect = () => {
-    useEffect(() => {
-      const canvas = document.getElementById("snowCanvas");
-      const ctx = canvas.getContext("2d");
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-  
-      const snowflakes = [];
-      const maxSnowflakes = 100;
-  
-      for (let i = 0; i < maxSnowflakes; i++) {
-        snowflakes.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 2 + 1, // Small circles
-          speed: Math.random() * 1 + 0.5,
-        });
-      }
-  
-      const draw = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-  
-        snowflakes.forEach((flake) => {
-          ctx.beginPath();
-          ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-          ctx.fill();
-          flake.y += flake.speed;
-  
-          // Reset snowflake to the top if it goes off the screen
-          if (flake.y > canvas.height) {
-            flake.y = 0;
-            flake.x = Math.random() * canvas.width;
-          }
-        });
-      };
-  
-      const interval = setInterval(draw, 30);
-      return () => clearInterval(interval);
-    }, []);
-  
-    return <canvas id="snowCanvas" style={{ position: "absolute", top: 0, left: 0, zIndex: 1, width: 'auto' }} />;
-  };
-  
+/**
+ * Full-width hero with asymmetric layout and blueprint-style grid (no canvas snow).
+ */
 const HeroSection = () => {
   return (
-    <div className="font-['Gilroy'] p-5 pt-0 w-full">
-      <div className="relative py-12 overflow-hidden h-auto bg-white rounded-md md:rounded-lg flex flex-col justify-center items-center gap-5">
-        <SnowEffect />
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="z-10 bg-white backdrop-blur-xl border border-white rounded-full flex flex-col justify-center items-center gap-5"
-        >
-          <div className="absolute inset-0 -z-10 bg-white blur-3xl opacity-20"></div>
+    <div className="w-full px-1 sm:px-2 pt-2 pb-4">
+      <section className="surface-card relative overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-6 sm:p-10 md:p-14 lg:p-16">
+        <div className="hero-grid-bg pointer-events-none absolute inset-0 opacity-[0.65]" aria-hidden />
+        <div className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[hsl(var(--signal)/0.12)] blur-3xl" aria-hidden />
+        <div className="absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-[hsl(200_40%_50%/0.08)] blur-3xl" aria-hidden />
 
-          <motion.div 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring", stiffness: 260, damping: 20 }}
-            className="relative w-40 h-40 bg-gray-500 rounded-full border-4 border-gray-200"
+        <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center">
+          <div className="flex flex-col gap-6 lg:gap-8">
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase"
+            >
+              Backend · Golang · Systems
+            </motion.p>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05, duration: 0.55 }}
+              className="font-display text-[clamp(2.1rem,5vw,4.25rem)] font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--ink))]"
+            >
+              Aryan Gupta
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.55 }}
+              className="max-w-xl font-['Gilroy'] text-lg leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-xl"
+            >
+              Backend engineer focused on{' '}
+              <span className="text-[hsl(var(--ink))]">scalable APIs</span>, microservices, and{' '}
+              <span className="text-[hsl(var(--ink))]">distributed systems</span> — from PostgreSQL internals to warehouse-scale workflows.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.28 }}
+              className="flex flex-wrap items-center gap-3 pt-2"
+            >
+              <a
+                href="https://aryancodes.tech/resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
+              >
+                <FolderOpenDot strokeWidth={1.75} size={18} className="text-[hsl(var(--signal))] transition-colors group-hover:text-[hsl(var(--surface))]" />
+                Résumé
+              </a>
+              <span className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
+                /omniful · shipping in prod
+              </span>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.12, type: 'spring', stiffness: 120, damping: 18 }}
+            className="relative mx-auto flex w-full max-w-[280px] flex-col items-center lg:max-w-none"
           >
-            <img src="/photo.svg" alt="Aryan Gupta - Backend and Golang Developer" className="w-full h-full rounded-full" />
-            <div className="absolute top-1/4 -right-[60px] md:-right-24 -rotate-3 rounded-full md:rounded-lg w-fit py-2 px-4 md:px-6 bg-black/80 font-bold text-white text-md md:text-xl flex flex-row items-center gap-2 hover:cursor-pointer">
-              <span className="flex items-center flex-row gap-2 md:hidden">Hello! <Handshake /></span>
-              <motion.a href="https://aryancodes.tech/resume" target="_blank" className="flex items-center flex-row gap-2 font-bold tracking-wide" whileHover={{ scale: 1.1 }}>
-                <span className="hidden md:flex items-center flex-row gap-2">
-                    <FolderOpenDot strokeWidth={1.5} size={24}/>Résumé
-                </span>
-              </motion.a>
+            <div className="relative">
+              <div className="absolute -inset-3 rotate-3 rounded-[2rem] border-2 border-dashed border-[hsl(var(--ink)/0.25)]" aria-hidden />
+              <div className="relative rotate-2 overflow-hidden rounded-[1.75rem] border-4 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] shadow-[12px_12px_0_hsl(var(--signal)/0.35)]">
+                <img
+                  src="/photo.svg"
+                  alt="Aryan Gupta — backend and Golang developer"
+                  width={320}
+                  height={320}
+                  className="aspect-square w-full max-w-[260px] object-cover sm:max-w-[280px]"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-2 max-w-[200px] rotate-[-2deg] rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] px-4 py-2 font-mono text-[10px] font-semibold uppercase leading-snug tracking-widest text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--ink)/0.15)] sm:text-xs">
+                open to interesting infra problems
+              </div>
             </div>
           </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="name text-3xl sm:text-6xl PolySansMedium"
-          >
-            I&apos;m Aryan Gupta.
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className='designation text-center max-w-[400px] sm:max-w-[682px] text-xl sm:text-4xl px-5'
-          >
-            Backend Developer & Golang Developer specialized in scalable APIs, microservices, and distributed systems.
-          </motion.p>
-        </motion.div>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }

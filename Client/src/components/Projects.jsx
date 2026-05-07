@@ -1,7 +1,8 @@
 import ProjectCard from './ProjectCard'
-import { Sparkle, Plus, Minus } from 'lucide-react'
+import { Sparkles, Plus, Minus } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import SectionHeading from './SectionHeading'
 
 const projectsData = [
   {
@@ -25,54 +26,6 @@ const projectsData = [
     externalLinkText: "widgetwall.aryancodes.tech",
     wonHackathon: true
   },
-  // {
-  //   source: "/project_logos/buzzvibe.svg",
-  //   imgPreview: "/project_images/buzzvibe.jpg",
-  //   name: "BuzzVibe - Social Media Application",
-  //   description: "A full-stack social platform featuring real-time updates, user interactions, and media sharing capabilities",
-  //   githubLink: "https://github.com/aryancodes-tech/BuzzVibe-Social-Media-Application",
-  //   externalLink: "https://buzzvibe.aryancodes.tech",
-  //   externalLinkText: "buzzvibe.aryancodes.tech",
-  //   wonHackathon: false
-  // },
-  // {
-  //   source: "/project_logos/compilex.png",
-  //   imgPreview: "/project_images/compilex.jpg",
-  //   name: "CompileX - Online Coding Platform",
-  //   description: "Interactive coding platform with real-time compilation, multiple language support, and collaborative features",
-  //   githubLink: "https://github.com/pritpalcodes/CodeRaiders-Tally-Codebrewers-24",
-  //   externalLink: "https://compilex.aryancodes.tech",
-  //   externalLinkText: "compilex.aryancodes.tech",
-  //   wonHackathon: false
-  // },
-  // {
-  //   source: "/project_logos/jobspool.svg",
-  //   imgPreview: "/project_images/jobspool.jpg",
-  //   name: "JobsPool - Job Search Platform",
-  //   description: "Comprehensive job search platform connecting candidates with employers, featuring smart matching and filters",
-  //   githubLink: "https://github.com/aryanploxxx/Jobs-Portal-React",
-  //   externalLink: "https://jobspool.aryancodes.tech",
-  //   externalLinkText: "jobspool.aryancodes.tech",
-  //   wonHackathon: false
-  // },
-  // {
-  //   source: "/project_logos/kioskmeet.svg",
-  //   imgPreview: "/project_images/kioskmeet.jpg",
-  //   name: "KioskMeet - One Stop Campus Solution",
-  //   description: "Integrated campus management system streamlining student services, communications, and resource access",
-  //   githubLink: "https://github.com/aryanploxxx/KioskMeet-Minor-Project",
-  //   externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-  //   wonHackathon: false
-  // },
-  // {
-  //   source: "/project_logos/squadspeak.svg",
-  //   imgPreview: "/project_images/squadspeak.jpg",
-  //   name: "SquadSpeak - Chatting Application",
-  //   description: "Real-time messaging application with group chats, file sharing, and encrypted communication",
-  //   githubLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-  //   externalLink: "https://github.com/aryanploxxx/SquadSpeak-Chat-App",
-  //   wonHackathon: false
-  // }
 ]
 
 const Projects = () => {
@@ -83,13 +36,13 @@ const Projects = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const visibleProjects = isMobile 
+  const visibleProjects = isMobile
     ? (showAll ? projectsData : projectsData.slice(0, 3))
     : projectsData
 
@@ -117,30 +70,18 @@ const Projects = () => {
   }
 
   return (
-    <div id="projects" className="flex flex-col flex-wrap justify-center items-left gap-5 p-5">
-      <motion.h2 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="hidden md:flex text-4xl font-bold flex-row gap-2 items-center"
-      >
-        <Sparkle strokeWidth={1.5} size={36}/> Projects
-      </motion.h2>
+    <section id="projects" className="flex w-full flex-col gap-8 px-1 py-8 sm:px-2 md:py-12">
+      <SectionHeading
+        kicker="03 — Build"
+        title="Projects"
+        icon={<Sparkles strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
+      />
 
-      <motion.h2 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex md:hidden text-2xl font-bold flex-row gap-2 items-center"
-      >
-        <Sparkle strokeWidth={1.5} size={24}/> Projects
-      </motion.h2>
-
-      <motion.div 
+      <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        className="grid grid-cols-1 gap-8 md:grid-cols-2"
       >
         <AnimatePresence mode="wait">
           {visibleProjects.map((project, index) => (
@@ -157,15 +98,16 @@ const Projects = () => {
           ))}
         </AnimatePresence>
       </motion.div>
-      
+
       {isMobile && (
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          type="button"
           onClick={() => setShowAll(!showAll)}
-          className="w-full flex justify-center border border-b-4 border-black/30 items-center gap-2 px-6 py-3 text-black rounded-xl hover:bg-gray-100 transition-all duration-300"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] px-6 py-4 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--ink))] shadow-[6px_6px_0_hsl(var(--signal)/0.35)] transition-colors hover:bg-[hsl(var(--signal)/0.1)]"
         >
           <motion.div
             animate={{ rotate: showAll ? 180 : 0 }}
@@ -173,10 +115,10 @@ const Projects = () => {
           >
             {showAll ? <Minus size={20} /> : <Plus size={20} />}
           </motion.div>
-          {showAll ? "Show Less" : "Show More"}
+          {showAll ? "Show less" : "Show more"}
         </motion.button>
       )}
-    </div>
+    </section>
   )
 }
 

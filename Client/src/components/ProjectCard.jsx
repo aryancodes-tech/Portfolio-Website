@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, externalLinkText, description, wonHackathon, isSaaS}) => {
   const [showPreview, setShowPreview] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
-  
+
   const handleMouseMove = useCallback((e) => {
     const rect = e.currentTarget.getBoundingClientRect()
     setPosition({
@@ -16,109 +16,98 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
   }, [])
 
   return (
-    <motion.div 
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="bg-white relative font-['Gilroy'] flex flex-col gap-8 w-full text-black rounded-xl py-6 px-4 md:p-8 border border-b-4 border-black/30 hover:border-black/60 hover:transition-colors"
+    <motion.article
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 320, damping: 28 }}
+      className="surface-card relative flex w-full flex-col gap-6 px-5 py-6 md:gap-8 md:p-8"
       style={{ zIndex: showPreview ? 50 : 0 }}
     >
-      
+
       {wonHackathon && (
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="absolute -top-5 md:-top-3 inset-x-0 mx-auto md:left-auto md:right-3 w-fit text-nowrap bg-red-600 text-white px-4 py-1 rounded-xl text-sm md:text-lg font-bold shadow-lg flex flex-row items-center gap-2"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="absolute -top-3 left-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal))] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--ink))] md:right-4 md:left-auto"
         >
-          <motion.div
-            animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
-            transition={{ duration: 1, delay: 1 }}
+          <motion.span
+            animate={{ rotate: [0, -8, 8, 0] }}
+            transition={{ duration: 1.2, delay: 0.5 }}
           >
-            <Trophy size={20}/>
-          </motion.div>
-          Hackathon Winner
+            <Trophy size={16} strokeWidth={2} />
+          </motion.span>
+          Hackathon winner
         </motion.div>
       )}
-      
-      <div className="flex flex-row justify-between items-center">
-        <img src={source} className="w-24 md:h-10 md:w-40" alt={name}/>
-        <div className='flex flex-row md:flex-col lg:flex-row justify-end gap-2'>
-        {isSaaS && (
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="absolute -top-5 md:-top-3 inset-x-0 mx-auto md:left-auto md:right-3 w-fit text-nowrap bg-purple-50 text-purple-800 border-2 border-purple-800 px-4 py-1 rounded-xl text-sm md:text-lg font-bold shadow-lg flex flex-row items-center gap-2"
-            >
+
+      <div className="flex flex-row items-start justify-between gap-4 pt-1">
+        <img src={source} className="h-9 w-auto max-w-[10rem] object-contain md:h-10" alt={`${name} logo`} />
+        <div className="flex flex-shrink-0 flex-row justify-end gap-2 md:flex-col md:items-end lg:flex-row">
+          {isSaaS && (
             <motion.div
-              animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
-              transition={{ duration: 1, delay: 1 }}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              className="absolute -top-3 right-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--signal)/0.4)] md:left-4 md:right-auto"
             >
-              <span className='hidden md:block'><Globe size={20}/></span>
-              <span className='block md:hidden'><Globe size={16}/></span>
+              <Globe size={14} />
+              Micro-SaaS
             </motion.div>
-            Micro-SaaS
-          </motion.div>
-        )}
-        {
-          githubLink && 
+          )}
+          {githubLink && githubLink.length > 0 && (
             <>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden md:block hover:cursor-pointer">
-                <Github size={40}/>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:block">
+                <Github size={36} strokeWidth={1.5} />
               </a>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="block md:hidden hover:cursor-pointer">
-                <Github size={24}/>
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="block text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:hidden">
+                <Github size={26} strokeWidth={1.5} />
               </a>
             </>
-        }
+          )}
         </div>
-        
-      </div>
-      
-      <div className="flex flex-col gap-2">
-        <span className="text-lg md:text-2xl PolySansMedian text-gray-800">{name}</span>
-        <span className="text-md md:text-lg PolySansSlim leading-tight text-gray-500">{description}</span>
       </div>
 
-      <div className="relative">
-        <a 
-          href={externalLink} 
-          target="_blank" 
+      <div className="flex flex-col gap-2">
+        <h3 className="PolySansMedian text-lg text-[hsl(var(--ink))] md:text-2xl">{name}</h3>
+        <p className="PolySansSlim text-base leading-snug text-[hsl(var(--muted-foreground))] md:text-lg">{description}</p>
+      </div>
+
+      <div className="relative border-t-2 border-dashed border-[hsl(var(--border))] pt-6">
+        <a
+          href={externalLink}
+          target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={() => setShowPreview(true)}
           onMouseMove={handleMouseMove}
           onMouseLeave={() => setShowPreview(false)}
-          className="hover:text-blue-700"
+          className="group inline-flex flex-wrap items-center gap-2 md:gap-3"
         >
-           <div className="PolySansNeutral text-gray-700 hover:cursor-pointer tracking-wide flex flex-row items-center gap-2 md:gap-4 text-md md:text-lg lg:text-xl">
-           { externalLinkText && <span>{externalLinkText}</span> }
-            <span className="hidden md:block p-1 bg-black/10 rounded-full hover:scale-125 hover:transition-all">
-              <ArrowUpRight strokeWidth={1.5} size={20}/>
-            </span>
-            <span className="block md:hidden p-1 bg-black/10 rounded-full hover:scale-125 hover:transition-all">
-              <ArrowUpRight strokeWidth={1.5} size={14}/>
-            </span>
-          </div> 
+          <span className="PolySansNeutral font-mono text-sm tracking-wide text-[hsl(var(--signal-deep))] group-hover:text-[hsl(var(--ink))] md:text-base lg:text-lg">
+            {externalLinkText}
+          </span>
+          <span className="hidden rounded-full border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] p-1.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 md:inline-flex">
+            <ArrowUpRight strokeWidth={2} size={20} className="text-[hsl(var(--ink))]" />
+          </span>
+          <span className="inline-flex rounded-full border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] p-1 md:hidden">
+            <ArrowUpRight strokeWidth={2} size={14} className="text-[hsl(var(--ink))]" />
+          </span>
         </a>
 
         {showPreview && (
-          <div 
-            className="hidden sm:block absolute z-[999] w-[400px] rounded-lg bg-white shadow-xl"
+          <div
+            className="pointer-events-none absolute z-[999] hidden w-[min(100vw-2rem,400px)] rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] shadow-[10px_10px_0_hsl(var(--signal)/0.25)] sm:block"
             style={{
               left: `${position.x + 16}px`,
               top: `${position.y + 16}px`,
-              pointerEvents: 'none'
             }}
           >
             <img
               src={imgPreview}
-              alt="Preview"
-              className="w-full rounded"
+              alt=""
+              className="w-full rounded-[10px]"
             />
           </div>
         )}
       </div>
-    </motion.div>
+    </motion.article>
   )
 }
 

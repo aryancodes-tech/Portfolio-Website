@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, ExternalLink } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 
 const educationData = [
   {
@@ -34,130 +35,88 @@ const educationData = [
 
 const Education = () => {
   return (
-    <div id="education" className="font-['Gilroy'] px-5 py-5 w-full">
-      <div className="flex flex-col gap-5">
-        {/* Header */}
-        <div className="flex items-center gap-2">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="rounded-xl"
-          >
-            <GraduationCap strokeWidth={2} size={36} className="text-black" />
-          </motion.div>
-          <h2 className="text-2xl md:text-4xl font-bold">Education</h2>
-        </div>
+    <section id="education" className="w-full px-1 py-8 sm:px-2 md:py-12">
+      <SectionHeading
+        kicker="01 — Formation"
+        title="Education"
+        icon={<GraduationCap strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
+      />
 
-        {/* Updated grid layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* College Card - Full Height on Left */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="group relative bg-white p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300 h-full"
-          >
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-xl md:text-2xl font-bold">{educationData[0].degree}</h3>
-                    <a href={educationData[0].website} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
-                      🔗
-                    </a>
-                  </div>
-                  <p className="text-gray-600">{educationData[0].institution} • {educationData[0].duration}</p>
-                  <p className="text-gray-600">{educationData[0].field}</p>
-                </div>
-              </div>
-
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="md:mt-0 inline-flex bg-gradient-to-t from-black to-blue-900 text-white px-4 py-1 rounded-full text-sm font-medium self-start"
-              >
-                CGPA: &nbsp; <b>{educationData[0].cgpa}</b>
-              </motion.div>
-              
-              <div className="flex flex-wrap gap-2">
-                {educationData[0].highlights.map((highlight, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors hover:cursor-default"
-                  >
-                    {highlight}
-                  </motion.span>
-                ))}
-              </div>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="surface-card group relative flex h-full flex-col gap-5 p-6 md:p-8"
+        >
+          <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h3 className="font-display text-xl font-bold text-[hsl(var(--ink))] md:text-2xl">
+                {educationData[0].degree}
+              </h3>
+              <p className="mt-1 text-[hsl(var(--muted-foreground))]">
+                {educationData[0].institution} · {educationData[0].duration}
+              </p>
+              <p className="text-sm text-[hsl(var(--muted-foreground))]">{educationData[0].field}</p>
             </div>
-          </motion.div>
-
-          {/* School Cards Container - Right Side */}
-          <div className="grid grid-cols-1 gap-6">
-            {/* XII Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="group relative bg-white p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300"
+            <a
+              href={educationData[0].website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-1 font-mono text-xs uppercase tracking-wider text-[hsl(var(--signal-deep))] underline decoration-dotted underline-offset-4 hover:text-[hsl(var(--ink))]"
             >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-xl md:text-2xl font-bold">{educationData[1].degree}</h3>
-                    <a href={educationData[1].website} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
-                      🔗
-                    </a>
-                  </div>
-                  <p className="text-gray-600">{educationData[1].institution} • {educationData[1].duration}</p>
-                </div>
-
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="mt-2 md:mt-0 inline-flex bg-gradient-to-t from-black to-blue-900 text-white px-4 py-1 rounded-full text-sm font-medium self-start md:self-center"
-                >
-                  Percentage: &nbsp; <b>{educationData[1].percentage}</b>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* X Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="group relative bg-white p-6 rounded-xl border border-black/10 hover:border-black/30 transition-all duration-300"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-xl md:text-2xl font-bold">{educationData[2].degree}</h3>
-                    <a href={educationData[2].website} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
-                      🔗
-                    </a>
-                  </div>
-                  <p className="text-gray-600">{educationData[2].institution} • {educationData[2].duration}</p>
-                </div>
-
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="mt-2 md:mt-0 inline-flex bg-gradient-to-t from-black to-blue-900 text-white px-4 py-1 rounded-full text-sm font-medium self-start md:self-center"
-                >
-                  Percentage: &nbsp; <b>{educationData[2].percentage}</b>
-                </motion.div>
-              </div>
-            </motion.div>
+              Visit <ExternalLink size={14} strokeWidth={2} />
+            </a>
           </div>
+
+          <span className="pill-signal w-fit font-mono text-xs uppercase tracking-wide">
+            CGPA <span className="mx-1 text-[hsl(var(--signal))]">·</span> {educationData[0].cgpa}
+          </span>
+
+          <div className="flex flex-wrap gap-2">
+            {educationData[0].highlights.map((highlight, i) => (
+              <span key={i} className="chip-tech">
+                {highlight}
+              </span>
+            ))}
+          </div>
+        </motion.article>
+
+        <div className="grid grid-cols-1 gap-6">
+          {[1, 2].map((idx) => (
+            <motion.article
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.06 }}
+              className="surface-card flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8"
+            >
+              <div className="min-w-0 flex-1">
+                <h3 className="font-display text-lg font-bold text-[hsl(var(--ink))] md:text-xl">
+                  {educationData[idx].degree}
+                </h3>
+                <p className="mt-1 text-[hsl(var(--muted-foreground))]">
+                  {educationData[idx].institution} · {educationData[idx].duration}
+                </p>
+                <a
+                  href={educationData[idx].website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[hsl(var(--signal-deep))] hover:text-[hsl(var(--ink))]"
+                >
+                  Link <ExternalLink size={14} />
+                </a>
+              </div>
+              <span className="pill-signal font-mono text-xs uppercase tracking-wide md:text-left">
+                {educationData[idx].percentage}
+              </span>
+            </motion.article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Education; 
+export default Education;
