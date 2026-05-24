@@ -59,7 +59,7 @@ const Experience = () => {
   return (
     <section id="experience" className="w-full px-1 py-8 sm:px-2 md:py-12">
       <SectionHeading
-        kicker="02 — Production"
+        // kicker="02 — Production"
         title="Experience"
         icon={<Briefcase strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />

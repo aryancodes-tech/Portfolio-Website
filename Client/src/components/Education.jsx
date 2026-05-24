@@ -37,7 +37,7 @@ const Education = () => {
   return (
     <section id="education" className="w-full px-1 py-8 sm:px-2 md:py-12">
       <SectionHeading
-        kicker="01 — Formation"
+        // kicker="01 — Formation"
         title="Education"
         icon={<GraduationCap strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />

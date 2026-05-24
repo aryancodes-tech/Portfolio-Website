@@ -8,7 +8,7 @@ import { DSA_EXTERNAL_URL } from './constants/urls'
 /** Sends the browser to the public resume PDF on Google Drive. */
 function RedirectToResume() {
   useEffect(() => {
-    window.location.href = "https://drive.google.com/file/d/1fxvjQcduLKS4ewpOm_j__fUBywM902mD/view?usp=sharing";
+    window.location.href = "https://drive.google.com/file/d/153sh7wGFxuyM1DWVxYKdRMUe659IZfxm/view?usp=sharingn";
   }, []);
   return null;
 }

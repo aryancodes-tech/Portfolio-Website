@@ -21,7 +21,7 @@ const HonorsAndAwards = () => {
   return (
     <section id="honors" className="mb-8 w-full px-1 py-8 sm:px-2 md:py-12">
       <SectionHeading
-        kicker="04 — Recognition"
+        // kicker="04 — Recognition"
         title="Honors & Awards"
         icon={<Award strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />
@@ -38,7 +38,7 @@ const HonorsAndAwards = () => {
             transition={{ delay: index * 0.08 }}
             className="surface-card relative overflow-hidden p-6 md:p-8"
           >
-            <div className="absolute -right-8 -top-8 flex h-28 w-28 items-center justify-center rounded-full border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal)/0.15)]">
+            <div className="absolute -right-4 -top-4 flex h-28 w-28 items-center justify-center rounded-full border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal)/0.15)]">
               <AwardIcon className="h-10 w-10 text-[hsl(var(--signal-deep))]" strokeWidth={1.5} />
             </div>
 

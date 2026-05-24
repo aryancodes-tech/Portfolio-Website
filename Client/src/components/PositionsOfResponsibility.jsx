@@ -23,7 +23,7 @@ const PositionsOfResponsibility = () => {
   return (
     <section id="positions" className="mb-8 w-full px-1 py-8 sm:px-2 md:py-12">
       <SectionHeading
-        kicker="05 — Community"
+        // kicker="05 — Community"
         title="Positions of Responsibility"
         icon={<Users strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />
@@ -39,12 +39,32 @@ const PositionsOfResponsibility = () => {
             className="surface-card p-6 md:p-8"
           >
             <div className="flex flex-col gap-4">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
+              <div className="flex items-start justify-between gap-3">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.28 }}
+                  className="flex min-w-0 flex-1 flex-col gap-2"
+                >
                   <h3 className="font-display text-xl font-bold text-[hsl(var(--ink))] md:text-2xl">{position.role}</h3>
-                  <p className="mt-1 text-[hsl(var(--muted-foreground))]">{position.organization}</p>
-                  <p className="font-mono text-xs uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{position.duration}</p>
-                </div>
+                  <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2 sm:gap-y-1">
+                    <span className="inline-block w-fit font-mono text-[11px] font-semibold uppercase tracking-widest text-[hsl(var(--surface))]">
+                      <span className="rounded-lg bg-[hsl(var(--ink))] px-3 py-1 shadow-[3px_3px_0_hsl(var(--signal)/0.5)]">
+                        {position.organization}
+                      </span>
+                    </span>
+                    <span
+                      className="hidden shrink-0 font-mono text-sm text-[hsl(var(--muted-foreground))] sm:inline"
+                      aria-hidden
+                    >
+                      ·
+                    </span>
+                    <p className="pt-1.5 font-mono text-xs uppercase tracking-wider text-[hsl(var(--muted-foreground))] sm:pt-0">
+                      {position.duration}
+                    </p>
+                  </div>
+                </motion.div>
+
                 {position.link.length > 0 && (
                   <motion.a
                     href={position.link}

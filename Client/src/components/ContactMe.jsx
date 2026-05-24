@@ -48,9 +48,9 @@ const ContactMe = () => {
         className="relative flex flex-col items-center justify-center gap-8 py-24 md:gap-10 md:py-32"
       >
         <div className="text-center">
-          <p className="font-mono text-[10px] tracking-[0.45em] text-[hsl(var(--signal))] uppercase md:text-xs">
+          {/* <p className="font-mono text-[10px] tracking-[0.45em] text-[hsl(var(--signal))] uppercase md:text-xs">
             06 — Ping
-          </p>
+          </p> */}
           <h2 className="font-display mt-3 text-4xl font-extrabold tracking-tight text-[hsl(40_25%_98%)] md:text-6xl">
             Let&apos;s talk
           </h2>

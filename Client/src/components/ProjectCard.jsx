@@ -27,7 +27,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="absolute -top-3 left-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal))] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--ink))] md:right-4 md:left-auto"
+          className="absolute -top-3 left-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal))] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--ink))] md:right-4 md:left-auto text-white"
         >
           <motion.span
             animate={{ rotate: [0, -8, 8, 0] }}
