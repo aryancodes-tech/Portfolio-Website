@@ -93,6 +93,7 @@ const Experience = () => {
                 href={exp.website}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Visit ${exp.company} website`}
                 className={`flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] shadow-[4px_4px_0_hsl(var(--signal)/0.35)] md:h-24 md:w-24 ${exp.company === 'Omniful AI' ? 'p-2' : ''}`}
               >
                 <picture>
@@ -112,7 +113,7 @@ const Experience = () => {
 
               <div className="flex min-w-0 flex-1 flex-col gap-4">
                 <div>
-                  <div className="flex flex-wrap items-baseline gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-display text-xl font-bold text-[hsl(var(--ink))] md:text-2xl">
                       {exp.position}
                     </h3>
@@ -122,7 +123,8 @@ const Experience = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[hsl(var(--signal-deep))] hover:text-[hsl(var(--ink))]"
                     >
-                      <ExternalLink size={14} />
+                      Visit 
+                      <ExternalLink size={14} strokeWidth={2} aria-hidden />
                     </a>
                   </div>
                   <p className="mt-1 font-mono text-sm text-[hsl(var(--muted-foreground))]">

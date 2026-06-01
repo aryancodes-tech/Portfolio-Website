@@ -69,7 +69,8 @@ const Education = () => {
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-1 font-mono text-xs uppercase tracking-wider text-[hsl(var(--signal-deep))] underline decoration-dotted underline-offset-4 hover:text-[hsl(var(--ink))]"
             >
-              Visit <ExternalLink size={14} strokeWidth={2} />
+              Visit
+              <ExternalLink size={14} strokeWidth={2} aria-hidden />
             </a>
           </div>
 
@@ -109,7 +110,8 @@ const Education = () => {
                   rel="noopener noreferrer"
                   className="mt-2 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[hsl(var(--signal-deep))] hover:text-[hsl(var(--ink))]"
                 >
-                  Link <ExternalLink size={14} />
+                  Visit
+                  <ExternalLink size={14} strokeWidth={2} aria-hidden />
                 </a>
               </div>
               <span className="pill-signal font-mono text-xs uppercase tracking-wide md:text-left">

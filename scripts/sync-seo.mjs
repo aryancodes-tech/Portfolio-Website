@@ -35,8 +35,7 @@ const jsonLd = JSON.stringify(buildStructuredDataGraph(), null, 2)
   .map((line) => `      ${line}`)
   .join('\n')
 
-const headBlock = `    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/ag_black.svg"/>
+const headBlock = `    <link rel="icon" type="image/svg+xml" href="/ag_black.svg"/>
     <link rel="canonical" href="${canonicalUrl}" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

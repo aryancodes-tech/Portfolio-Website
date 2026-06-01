@@ -39,7 +39,7 @@ const HeroSection = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
               >
-                <FolderOpenDot strokeWidth={1.75} size={18} className="text-[hsl(var(--signal))] transition-colors group-hover:text-[hsl(var(--surface))]" />
+                <FolderOpenDot strokeWidth={1.75} size={18} className="text-[hsl(var(--signal))] transition-colors group-hover:text-[hsl(var(--surface))]" aria-hidden />
                 Résumé
               </a>
               <span className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
@@ -60,7 +60,7 @@ const HeroSection = () => {
                   width={280}
                   height={280}
                   decoding="async"
-                  fetchPriority="high"
+                  fetchpriority="high"
                   className="aspect-square w-full max-w-[260px] object-cover sm:max-w-[280px]"
                 />
               </div>
