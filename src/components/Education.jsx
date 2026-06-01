@@ -4,9 +4,9 @@ import SectionHeading from './SectionHeading';
 
 const educationData = [
   {
-    institution: "Jaypee Institute of Information Technology",
+    institution: "Jaypee Institute of Information Technology (JIIT)",
     degree: "Bachelor of Technology (B.Tech)",
-    field: "Information Technology (IT)",
+    field: "Information Technology (IT) — Software Engineering",
     duration: "2021 - 2025",
     website: "https://www.jiit.ac.in",
     cgpa: "8.1 / 10",
@@ -35,7 +35,11 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="w-full px-1 py-8 sm:px-2 md:py-12">
+    <section
+      id="education"
+      className="w-full px-1 py-8 sm:px-2 md:py-12"
+      aria-label="Aryan Gupta education — JIIT Jaypee Institute of Information Technology"
+    >
       <SectionHeading
         // kicker="01 — Formation"
         title="Education"

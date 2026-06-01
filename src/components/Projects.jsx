@@ -52,7 +52,11 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="flex w-full flex-col gap-8 px-1 py-8 sm:px-2 md:py-12">
+    <section
+      id="projects"
+      className="flex w-full flex-col gap-8 px-1 py-8 sm:px-2 md:py-12"
+      aria-label="Aryan Gupta backend and full-stack projects"
+    >
       <SectionHeading
         // kicker="03 — Build"
         title="Projects"

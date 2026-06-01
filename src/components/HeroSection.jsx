@@ -1,5 +1,6 @@
 import { FolderOpenDot } from "lucide-react"
 import { motion } from 'framer-motion'
+import { HERO_KICKER, HERO_SUMMARY, PROFILE_IMAGE_ALT } from '../constants/seo'
 
 /**
  * Full-width hero with asymmetric layout and blueprint-style grid (no canvas snow).
@@ -7,7 +8,10 @@ import { motion } from 'framer-motion'
 const HeroSection = () => {
   return (
     <div className="w-full px-1 sm:px-2 pt-8 pb-2">
-      <section className="surface-card relative overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-6 sm:p-10 md:p-14 lg:p-16">
+      <section
+        className="surface-card relative overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-6 sm:p-10 md:p-14 lg:p-16"
+        aria-label="Aryan Gupta — Backend Developer and Software Engineer"
+      >
         <div className="hero-grid-bg pointer-events-none absolute inset-0 opacity-[0.65]" aria-hidden />
         <div className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[hsl(var(--signal)/0.12)] blur-3xl" aria-hidden />
         <div className="absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-[hsl(200_40%_50%/0.08)] blur-3xl" aria-hidden />
@@ -19,7 +23,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               className="font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase"
             >
-              Backend · Golang · System Design
+              {HERO_KICKER}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
@@ -36,9 +40,7 @@ const HeroSection = () => {
               transition={{ delay: 0.15, duration: 0.55 }}
               className="max-w-xl font-['Gilroy'] text-lg leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-xl"
             >
-              Backend engineer focused on{' '}
-              <span className="text-[hsl(var(--ink))]">scalable APIs</span>, microservices, and{' '}
-              <span className="text-[hsl(var(--ink))]">distributed systems</span> — from PostgreSQL internals to warehouse-scale workflows.
+              {HERO_SUMMARY}
             </motion.p>
 
             <motion.div
@@ -73,7 +75,7 @@ const HeroSection = () => {
               <div className="relative rotate-2 overflow-hidden rounded-[1.75rem] border-4 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] shadow-[12px_12px_0_hsl(var(--signal)/0.35)]">
                 <img
                   src="/photo.svg"
-                  alt="Aryan Gupta — backend and Golang developer"
+                  alt={PROFILE_IMAGE_ALT}
                   width={320}
                   height={320}
                   className="aspect-square w-full max-w-[260px] object-cover sm:max-w-[280px]"
