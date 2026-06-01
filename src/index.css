@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: 222 47% 11%;
+    --paper: 40 18% 94%;
+    --surface: 40 25% 99%;
+    --signal: 22 90% 48%;
+    --signal-deep: 18 88% 38%;
+    --border: 35 14% 82%;
+    --grid-line: 220 14% 88%;
+    --background: 40 18% 94%;
+    --foreground: 222 47% 11%;
+    --card: 40 25% 99%;
+    --card-foreground: 222 47% 11%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 40 25% 98%;
+    --radius: 0.75rem;
+    --popover: 40 25% 99%;
+    --popover-foreground: 222 47% 11%;
+    --secondary: 38 18% 92%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 38 14% 91%;
+    --muted-foreground: 220 12% 32%;
+    --accent: 38 22% 91%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 40 25% 98%;
+    --input: 35 14% 82%;
+    --ring: 22 90% 48%;
+    --chart-1: 22 90% 48%;
+    --chart-2: 200 45% 40%;
+    --chart-3: 280 35% 45%;
+    --chart-4: 45 85% 48%;
+    --chart-5: 340 70% 48%;
+  }
+
+  .content {
+    @apply mx-auto max-w-6xl w-full px-3 sm:px-5 md:w-[92%] lg:max-w-7xl;
+  }
+
+  .site-shell {
+    @apply relative min-h-screen;
+  }
+
+  .site-shell::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  .site-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+body {
+  background-color: hsl(var(--paper));
+  background-image:
+    linear-gradient(
+      165deg,
+      hsl(var(--paper)) 0%,
+      hsl(38 22% 91%) 45%,
+      hsl(200 12% 92%) 100%
+    );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Gilroy", "Syne", system-ui, sans-serif;
+  overflow-x: hidden;
+  color: hsl(var(--ink));
+}
+
+.svg-icon {
+  width: 45.5px;
+  height: 33.5px;
+}
+
+@media (max-width: 768px) {
+  .svg-icon {
+    width: 30px;
+    height: 22px;
+  }
+}
+
+*::selection {
+  background: hsl(var(--signal-deep));
+  color: hsl(40 25% 99%);
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url(./assets/fonts/Gilroy-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PolySansGX";
+  src: url(./assets/fonts/PolySansGX.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "PolySansItalicGX";
+  src: url(./assets/fonts/PolySansItalicGX.ttf) format("truetype");
+}
+
+.PolySansSlimMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
+}
+.PolySansSlimMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
+}
+.PolySansNeutralMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
+}
+.PolySansNeutralMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
+}
+.PolySansMedianMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
+}
+.PolySansMedianMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
+}
+.PolySansBulkyMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
+}
+.PolySansBulkyMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
+}
+.PolySansSlim {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
+}
+.PolySansSlimItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
+}
+.PolySansNeutral {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
+}
+.PolySansNeutralItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
+}
+.PolySansMedian {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
+}
+.PolySansMedianItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
+}
+.PolySansBulky {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
+}
+.PolySansBulkyItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    @apply rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] shadow-[6px_6px_0_hsl(var(--ink)/0.08)] transition-shadow duration-300;
+  }
+
+  .surface-card:hover {
+    @apply shadow-[8px_8px_0_hsl(var(--signal)/0.22)];
+  }
+
+  .pill-signal {
+    @apply inline-flex items-center rounded-full bg-[hsl(var(--ink))] px-4 py-1 text-sm font-semibold text-[hsl(var(--surface))] shadow-[3px_3px_0_hsl(var(--signal)/0.55)];
+  }
+
+  .chip-tech {
+    @apply rounded-lg border border-border bg-paper px-3 py-1 font-mono text-xs font-medium text-muted-foreground transition-colors hover:border-signal-deep hover:text-ink;
+  }
+
+  .link-external {
+    @apply text-[hsl(var(--signal-deep))] underline decoration-dotted underline-offset-4 transition-colors hover:text-[hsl(var(--ink))];
+  }
+
+  .hero-grid-bg {
+    background-image:
+      linear-gradient(
+        hsl(var(--grid-line)) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        hsl(var(--grid-line)) 1px,
+        transparent 1px
+      );
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

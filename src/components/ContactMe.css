@@ -1,0 +1,102 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+/* Styles for extra small devices go here */
+
+    .contact-me-container {
+        background-size: cover !important;
+    }
+
+    .contact-me-description {
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+    }
+
+    .emailClass {
+        font-size: 0.9rem !important /* 20px */;
+        line-height: 1.75rem
+    }
+
+    .socials-container {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+/* Styles for small devices go here */
+    .contact-me-description {
+        font-size: 1.5rem !important;
+        line-height: 1.75rem !important;
+        width: 70%;
+    }
+
+    .emailClass {
+        font-size: 1.1rem !important /* 20px */;
+        line-height: 1.75rem
+    }
+
+    .socials-container {
+        font-size: 2.6rem !important;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+/* Styles for medium devices go here */
+    .contact-me-description {
+        font-size: 1.6rem !important;
+        line-height: 1.75rem !important;
+        width: 65%;
+    }
+
+    .emailClass {
+        font-size: 1.15rem !important /* 20px */;
+        line-height: 1.75rem
+    }
+
+    .socials-container {
+        font-size: 2.7rem !important;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+/* Styles for large devices go here */
+    .contact-me-description {
+        font-size: 1.7rem !important;
+        line-height: 1.75rem !important;
+        width: 55%;
+    }
+
+    .emailClass {
+        font-size: 1.2rem !important /* 20px */;
+        line-height: 1.75rem
+    }
+
+    .socials-container {
+        font-size: 2.85rem !important;
+    }
+
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+/* Styles for extra large devices go here */
+    .contact-me-description {
+        font-size: 1.875rem !important;
+        line-height: 1.75rem !important;
+        width: 50%;
+    }
+
+    .emailClass {
+        font-size: 1.25rem !important /* 20px */;
+        line-height: 1.75rem
+    }
+
+    .socials-container {
+        font-size: 3rem !important;
+    }
+}
