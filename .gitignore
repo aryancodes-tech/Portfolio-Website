@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 src/dump
+
+SEO_README.md
+SEO_SUBMISSION_CHECKLIST.md
