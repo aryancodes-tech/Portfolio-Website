@@ -10,7 +10,7 @@ const useCopyToClipboard = () => {
     try {
       await navigator.clipboard.writeText(content);
       setIsCopied(true);
-      console.log('Copied to clipboard:', content);
+      setTimeout(() => setIsCopied(false), 2000);
     } catch (error) {
       setIsCopied(false);
       console.error('Unable to copy to clipboard:', error);
@@ -20,15 +20,23 @@ const useCopyToClipboard = () => {
   return { isCopied, copyToClipboard };
 };
 
+/**
+ * Copies `content` to the clipboard when clicked.
+ * @param {{ content: string }} props
+ */
 const CopyToClipboardButton = ({ content }) => {
   const { isCopied, copyToClipboard } = useCopyToClipboard();
+  const label = isCopied ? 'Email copied' : 'Copy email address';
 
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <button onClick={() => copyToClipboard(content)}>
-        {isCopied ? <FaCheckCircle /> : <FaRegCopy />}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={() => copyToClipboard(content)}
+      aria-label={label}
+      className="flex flex-col items-center justify-center rounded-lg p-1 text-[hsl(var(--ink))] transition-colors hover:text-[hsl(var(--signal-deep))]"
+    >
+      {isCopied ? <FaCheckCircle aria-hidden /> : <FaRegCopy aria-hidden />}
+    </button>
   );
 };
 

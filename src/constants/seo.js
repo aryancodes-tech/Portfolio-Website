@@ -65,6 +65,12 @@ export const META_TITLE =
   'Aryan Gupta | Backend Developer & Software Engineer'
 
 /**
+ * Document title for the custom 404 page.
+ * @type {string}
+ */
+export const NOT_FOUND_META_TITLE = '404 — Page Not Found | Aryan Gupta'
+
+/**
  * Meta description (~150–160 characters).
  * @type {string}
  */
@@ -132,11 +138,11 @@ export const HERO_KICKER =
   'Backend Developer · Golang · System Design'
 
 /**
- * Hero supporting paragraph (visible, natural keyword inclusion).
+ * Hero supporting paragraph (plain text for static LCP shell and meta).
  * @type {string}
  */
-export const HERO_SUMMARY =
-  'Backend Developer and Software Engineer (SDE-1) at Omniful AI — building high-performance backends, REST APIs, and microservices for supply chain & logistics. JIIT graduate working in Golang, Python, PostgreSQL, and AWS across distributed systems and backend architecture.'
+export const HERO_SUMMARY_PLAIN =
+  'Backend engineer focused on scalable APIs, microservices, and distributed systems — from PostgreSQL internals to warehouse-scale workflows.'
 
 /**
  * Accessible label for the profile image.

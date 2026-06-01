@@ -75,20 +75,20 @@ const ContactMe = () => {
           className="socials-container mb-4 flex flex-row gap-8 text-5xl md:gap-10"
         >
           <motion.div variants={itemVariant}>
-            <a href="https://github.com/aryancodes-tech" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <FaGithub />
+            <a href="https://github.com/aryancodes-tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on GitHub" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
+              <FaGithub aria-hidden />
             </a>
           </motion.div>
 
           <motion.div variants={itemVariant}>
-            <a href="https://linkedin.com/in/aryancodes-tech" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <IoLogoLinkedin />
+            <a href="https://linkedin.com/in/aryancodes-tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on LinkedIn" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
+              <IoLogoLinkedin aria-hidden />
             </a>
           </motion.div>
 
           <motion.div variants={itemVariant}>
-            <a href="https://x.com/aryancodes_tech" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <FaXTwitter />
+            <a href="https://x.com/aryancodes_tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on X" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
+              <FaXTwitter aria-hidden />
             </a>
           </motion.div>
         </motion.div>

@@ -40,7 +40,15 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
       )}
 
       <div className="flex flex-row items-start justify-between gap-4 pt-1">
-        <img src={source} className="h-9 w-auto max-w-[10rem] object-contain md:h-10" alt={`${name} logo`} />
+        <img
+          src={source}
+          className="h-9 w-auto max-w-[10rem] object-contain md:h-10"
+          alt={`${name} logo`}
+          width={160}
+          height={40}
+          loading="lazy"
+          decoding="async"
+        />
         <div className="flex flex-shrink-0 flex-row justify-end gap-2 md:flex-col md:items-end lg:flex-row">
           {isSaaS && (
             <motion.div
@@ -54,11 +62,11 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           )}
           {githubLink && githubLink.length > 0 && (
             <>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="hidden text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:block">
-                <Github size={36} strokeWidth={1.5} />
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label={`${name} on GitHub`} className="hidden text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:block">
+                <Github size={36} strokeWidth={1.5} aria-hidden />
               </a>
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="block text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:hidden">
-                <Github size={26} strokeWidth={1.5} />
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label={`${name} on GitHub`} className="block text-[hsl(var(--ink))] hover:text-[hsl(var(--signal-deep))] md:hidden">
+                <Github size={26} strokeWidth={1.5} aria-hidden />
               </a>
             </>
           )}
@@ -101,7 +109,11 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           >
             <img
               src={imgPreview}
-              alt=""
+              alt={`${name} preview`}
+              width={400}
+              height={225}
+              loading="lazy"
+              decoding="async"
               className="w-full rounded-[10px]"
             />
           </div>

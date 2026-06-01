@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion';
 import { Briefcase, ExternalLink } from 'lucide-react';
 import SectionHeading from './SectionHeading';
+import {
+  LOGO_OMNIFUL_WEBP,
+  LOGO_OMNIFUL_PNG,
+  LOGO_BEZTLABS_WEBP,
+  LOGO_BEZTLABS_JPEG,
+} from '../constants/assets';
 
 const experiences = [
   {
     company: "Omniful AI",
-    logo: "/omniful.png",
+    logoWebp: LOGO_OMNIFUL_WEBP,
+    logoFallback: LOGO_OMNIFUL_PNG,
     position: "SDE - I (Warehouse Management System)",
     duration: <b>July 2025 - Present</b>,
     website: "https://omniful.ai",
@@ -25,7 +32,8 @@ const experiences = [
   },
   {
     company: "Omniful AI",
-    logo: "/omniful.png",
+    logoWebp: LOGO_OMNIFUL_WEBP,
+    logoFallback: LOGO_OMNIFUL_PNG,
     position: "SDE Intern",
     duration: <b>January 2025 - July 2025</b>,
     website: "https://omniful.ai",
@@ -41,7 +49,8 @@ const experiences = [
   },
   {
     company: "Bezt Labs",
-    logo: "/beztlabs.jpeg",
+    logoWebp: LOGO_BEZTLABS_WEBP,
+    logoFallback: LOGO_BEZTLABS_JPEG,
     position: "Full Stack Developer Intern",
     duration: <b>October 2024 - December 2024</b>,
     website: "https://abouv.com",
@@ -86,12 +95,19 @@ const Experience = () => {
                 rel="noopener noreferrer"
                 className={`flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] shadow-[4px_4px_0_hsl(var(--signal)/0.35)] md:h-24 md:w-24 ${exp.company === 'Omniful AI' ? 'p-2' : ''}`}
               >
-                <img
-                  src={exp.logo}
-                  alt={exp.company}
-                  title={exp.company}
-                  className="h-full w-full object-cover"
-                />
+                <picture>
+                  <source srcSet={exp.logoWebp} type="image/webp" />
+                  <img
+                    src={exp.logoFallback}
+                    alt={`${exp.company} logo`}
+                    title={exp.company}
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </picture>
               </motion.a>
 
               <div className="flex min-w-0 flex-1 flex-col gap-4">

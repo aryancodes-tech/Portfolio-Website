@@ -1,9 +1,13 @@
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
-import { Analytics } from "@vercel/analytics/react"
-import { useEffect } from 'react'
+import NotFound from './pages/NotFound'
 import { DSA_EXTERNAL_URL } from './constants/urls'
+
+const Analytics = lazy(() =>
+  import('@vercel/analytics/react').then((m) => ({ default: m.Analytics }))
+)
 
 /** Sends the browser to the public resume PDF on Google Drive. */
 function RedirectToResume() {
@@ -26,19 +30,17 @@ function RedirectToDsa() {
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route 
-          path="/resume" 
-          element={
-            <RedirectToResume />
-          } 
-        />
-        <Route path="/dsa" element={<RedirectToDsa />} />
-      </Routes>
-    </BrowserRouter>
-    <Analytics />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/resume" element={<RedirectToResume />} />
+          <Route path="/dsa" element={<RedirectToDsa />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <Suspense fallback={null}>
+        <Analytics />
+      </Suspense>
     </>
   )
 }

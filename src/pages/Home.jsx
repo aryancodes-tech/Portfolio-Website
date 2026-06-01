@@ -1,17 +1,21 @@
-// import { Element } from "react-scroll"
-
-// import AboutMe from "../components/AboutMe/AboutMe"
+import { lazy, Suspense } from 'react'
 import Navbar from "../components/Navbar"
 import HeroSection from "../components/HeroSection"
-// import AboutMe from "../components/AboutMe"
-import ContactMe from "../components/ContactMe"
-import Projects from "../components/Projects"
-import ResumeButton from "../components/ResumeButton"
-import { Element } from "react-scroll"
-import Experience from "../components/Experience"
-import Education from "../components/Education"
-import HonorsAndAwards from "../components/HonorsAndAwards"
-import PositionsOfResponsibility from "../components/PositionsOfResponsibility"
+
+const Education = lazy(() => import("../components/Education"))
+const Experience = lazy(() => import("../components/Experience"))
+const Projects = lazy(() => import("../components/Projects"))
+const HonorsAndAwards = lazy(() => import("../components/HonorsAndAwards"))
+const PositionsOfResponsibility = lazy(() => import("../components/PositionsOfResponsibility"))
+const ContactMe = lazy(() => import("../components/ContactMe"))
+const ResumeButton = lazy(() => import("../components/ResumeButton"))
+
+/** Lightweight placeholder while below-fold sections load. */
+const SectionFallback = () => (
+  <div className="w-full px-1 py-12 sm:px-2" aria-hidden>
+    <div className="surface-card mx-auto h-48 max-w-6xl animate-pulse rounded-2xl bg-[hsl(var(--muted))]" />
+  </div>
+)
 
 const Home = () => {
   return (
@@ -21,34 +25,17 @@ const Home = () => {
       aria-label="Aryan Gupta — Backend Developer, Software Engineer, Golang developer portfolio"
     >
       <Navbar />
-
       <HeroSection />
 
-      <Element name="education">
+      <Suspense fallback={<SectionFallback />}>
         <Education />
-      </Element>
-
-      <Element name="experience">
         <Experience />
-      </Element>
-{/* 
-      <Element name="freelance">
-        <Freelance />  
-      </Element> */}
-
-      <Element name="projects">
-        <Projects />  
-      </Element>
-
-      <HonorsAndAwards />
-      <PositionsOfResponsibility />
-
-      {/* <AboutMe /> */}
-      <Element name="contactme">
+        <Projects />
+        <HonorsAndAwards />
+        <PositionsOfResponsibility />
         <ContactMe />
-      </Element>
-
-      <ResumeButton />
+        <ResumeButton />
+      </Suspense>
     </main>
   )
 }

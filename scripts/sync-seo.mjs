@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Injects SEO constants from src/constants/seo.js into index.html
- * between <!-- SEO:AUTO_START --> and <!-- SEO:AUTO_END --> markers.
+ * Injects SEO constants and static LCP shell into index.html
+ * between AUTO markers (SEO, LCP CSS, LCP HTML).
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -18,8 +18,13 @@ import {
   OG_DESCRIPTION,
   OG_IMAGE_URL,
   OG_IMAGE_ALT,
+  HERO_KICKER,
+  HERO_SUMMARY_PLAIN,
+  PROFILE_IMAGE_ALT,
   buildStructuredDataGraph,
 } from '../src/constants/seo.js'
+import { HERO_PHOTO_WEBP, HERO_PHOTO_WEBP_SM } from '../src/constants/assets.js'
+import { LCP_CRITICAL_CSS, buildLcpShellHtml } from './lcp-shell.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const indexPath = join(root, 'index.html')
@@ -63,6 +68,8 @@ const headBlock = `    <meta charset="UTF-8" />
     <link rel="image_src" href="${OG_IMAGE_URL}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="${HERO_PHOTO_WEBP_SM}" as="image" type="image/webp" fetchpriority="high" media="(max-width: 480px)" />
+    <link rel="preload" href="${HERO_PHOTO_WEBP}" as="image" type="image/webp" fetchpriority="high" media="(min-width: 481px)" />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
@@ -72,23 +79,44 @@ const headBlock = `    <meta charset="UTF-8" />
 ${jsonLd}
     </script>`
 
-const html = readFileSync(indexPath, 'utf8')
-const start = '<!-- SEO:AUTO_START -->'
-const end = '<!-- SEO:AUTO_END -->'
-const startIdx = html.indexOf(start)
-const endIdx = html.indexOf(end)
+const lcpCssBlock = `    <style id="lcp-critical">\n${LCP_CRITICAL_CSS}\n    </style>`
 
-if (startIdx === -1 || endIdx === -1) {
-  console.error('Missing SEO:AUTO_START or SEO:AUTO_END markers in index.html')
-  process.exit(1)
+const lcpHtmlBlock = buildLcpShellHtml({
+  kicker: HERO_KICKER,
+  name: PERSON_NAME,
+  summary: HERO_SUMMARY_PLAIN,
+  imageAlt: PROFILE_IMAGE_ALT,
+  imageSm: HERO_PHOTO_WEBP_SM,
+  imageLg: HERO_PHOTO_WEBP,
+})
+
+/**
+ * @param {string} html
+ * @param {string} startMarker
+ * @param {string} endMarker
+ * @param {string} block
+ * @returns {string}
+ */
+function replaceBlock(html, startMarker, endMarker, block) {
+  const startIdx = html.indexOf(startMarker)
+  const endIdx = html.indexOf(endMarker)
+  if (startIdx === -1 || endIdx === -1) {
+    console.error(`Missing ${startMarker} or ${endMarker} in index.html`)
+    process.exit(1)
+  }
+  return (
+    html.slice(0, startIdx + startMarker.length) +
+    '\n' +
+    block +
+    '\n    ' +
+    html.slice(endIdx)
+  )
 }
 
-const updated =
-  html.slice(0, startIdx + start.length) +
-  '\n' +
-  headBlock +
-  '\n    ' +
-  html.slice(endIdx)
+let html = readFileSync(indexPath, 'utf8')
+html = replaceBlock(html, '<!-- SEO:AUTO_START -->', '<!-- SEO:AUTO_END -->', headBlock)
+html = replaceBlock(html, '<!-- LCP_CSS:AUTO_START -->', '<!-- LCP_CSS:AUTO_END -->', lcpCssBlock)
+html = replaceBlock(html, '<!-- LCP:AUTO_START -->', '<!-- LCP:AUTO_END -->', lcpHtmlBlock)
 
-writeFileSync(indexPath, updated)
-console.log('Synced SEO meta and JSON-LD to index.html')
+writeFileSync(indexPath, html)
+console.log('Synced SEO meta, LCP shell, and JSON-LD to index.html')

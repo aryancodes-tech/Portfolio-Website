@@ -18,17 +18,17 @@ const educationData = [
     ]
   },
   {
-    institution: "Canbridge Court High School",
+    institution: "Cambridge Court High School",
     degree: "Higher Secondary (XII)",
     duration: "2021",
     website: "https://cambridgecourthighschool.org/",
     percentage: "96.2 %"
   },
   {
-    institution: "Canbridge Court High School",
+    institution: "Cambridge Court High School",
     degree: "Secondary (X)",
     duration: "2019",
-    website: "https://www.dpsghaziabad.com",
+    website: "https://cambridgecourthighschool.org/",
     percentage: "97.0 %"
   }
 ];
