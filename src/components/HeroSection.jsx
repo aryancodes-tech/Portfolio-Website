@@ -33,17 +33,17 @@ const HeroSection = () => {
               <span className="text-[hsl(var(--ink))]">distributed systems</span> — from PostgreSQL internals to warehouse-scale workflows.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href={`${SITE_URL}${RESUME_PATH}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
               >
                 <FolderOpenDot strokeWidth={1.75} size={18} className="text-[hsl(var(--signal))] transition-colors group-hover:text-[hsl(var(--surface))]" aria-hidden />
                 Résumé
               </a>
-              <span className="font-mono text-xs text-[hsl(var(--muted-foreground))]">
+              <span className="hidden font-mono text-xs text-[hsl(var(--muted-foreground))] sm:inline">
                 · shipping in prod at 3 am
               </span>
             </div>

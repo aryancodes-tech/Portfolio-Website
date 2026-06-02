@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Github, ArrowUpRight, Trophy, Globe } from 'lucide-react'
 import { useState, useCallback } from 'react'
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion'
+import '../styles/polysans.css'
 
 const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, externalLinkText, description, wonHackathon, isSaaS}) => {
   const [showPreview, setShowPreview] = useState(false)
@@ -16,7 +17,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
   }, [])
 
   return (
-    <motion.article
+    <m.article
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 320, damping: 28 }}
       className="surface-card relative flex w-full flex-col gap-6 px-5 py-6 md:gap-8 md:p-8"
@@ -24,19 +25,19 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
     >
 
       {wonHackathon && (
-        <motion.div
+        <m.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="absolute -top-3 left-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--signal))] px-3 py-1 font-mono text-xs font-bold uppercase tracking-wide text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--ink))] md:right-4 md:left-auto text-white"
         >
-          <motion.span
+          <m.span
             animate={{ rotate: [0, -8, 8, 0] }}
             transition={{ duration: 1.2, delay: 0.5 }}
           >
             <Trophy size={16} strokeWidth={2} />
-          </motion.span>
+          </m.span>
           Hackathon winner
-        </motion.div>
+        </m.div>
       )}
 
       <div className="flex flex-row items-start justify-between gap-4 pt-1">
@@ -51,14 +52,14 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
         />
         <div className="flex flex-shrink-0 flex-row justify-end gap-2 md:flex-col md:items-end lg:flex-row">
           {isSaaS && (
-            <motion.div
+            <m.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               className="absolute -top-3 right-4 z-10 inline-flex w-fit items-center gap-2 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-[hsl(var(--ink))] shadow-[4px_4px_0_hsl(var(--signal)/0.4)] md:left-4 md:right-auto"
             >
               <Globe size={14} />
               Micro-SaaS
-            </motion.div>
+            </m.div>
           )}
           {githubLink && githubLink.length > 0 && (
             <>
@@ -119,7 +120,7 @@ const ProjectCard = ({source, imgPreview, name, githubLink, externalLink, extern
           </div>
         )}
       </div>
-    </motion.article>
+    </m.article>
   )
 }
 
