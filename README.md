@@ -178,9 +178,10 @@ Agents and contributors should read [`.cursor/rules/portfolio-website.mdc`](.cur
 
 Hosted on **Vercel**. [`vercel.json`](vercel.json):
 
-- Redirects `www.aryancodes.tech` → apex
 - Long-cache headers for static assets (`/assets/`, images, fonts)
 - SPA fallback: all routes → `index.html`
+
+**Domains:** Use a single canonical host in Vercel (Project → Settings → Domains). Do not add a `www` → apex redirect in `vercel.json` if Vercel already redirects apex → `www` (that causes a redirect loop and a blank page). `SITE_URL` in `seo.js` must match the primary domain.
 
 Push to the connected branch to deploy; no extra build command beyond `npm run build`.
 
