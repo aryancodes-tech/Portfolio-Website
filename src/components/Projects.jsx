@@ -2,55 +2,10 @@ import ProjectCard from './ProjectCard'
 import { Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
-
-const projectsData = [
-  {
-    source: "/project_logos/placementbuddy.svg",
-    imgPreview: "/project_images/placementbuddy.jpg",
-    name: "PlacementBuddy - JIIT's Placement Data",
-    description: "Access and analyze the past 2 years of placement data with advanced sorting, filtering, and interactive features.",
-    githubLink: "",
-    externalLink: "https://placementbuddy.aryancodes.tech/",
-    externalLinkText: "placementbuddy.aryancodes.tech",
-    wonHackathon: false,
-    isSaaS: true
-  },
-  {
-    source: "/project_logos/widgetwall.png",
-    imgPreview: "/project_images/widgetwall.jpg",
-    name: "WidgetWall - Chrome Extension",
-    description: "Browser extension for streamlined task management, time tracking, and productivity enhancement",
-    githubLink: "https://github.com/aryancodes-tech/WidgetWall-Chrome-Extension",
-    externalLink: "https://widgetwall.aryancodes.tech",
-    externalLinkText: "widgetwall.aryancodes.tech",
-    wonHackathon: true
-  },
-]
+import { projectsData } from '../constants/data/projects'
+import { projectGridContainer, projectGridItem } from '../motion/variants'
 
 const Projects = () => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20
-      }
-    }
-  }
-
   return (
     <section
       id="projects"
@@ -58,19 +13,18 @@ const Projects = () => {
       aria-label="Aryan Gupta backend and full-stack projects"
     >
       <SectionHeading
-        // kicker="03 — Build"
         title="Projects"
         icon={<Sparkles strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />
 
       <motion.div
-        variants={container}
+        variants={projectGridContainer}
         initial="hidden"
         animate="show"
         className="grid grid-cols-1 gap-8 md:grid-cols-2"
       >
         {projectsData.map((project, index) => (
-          <motion.div key={index} variants={item}>
+          <motion.div key={index} variants={projectGridItem}>
             <ProjectCard {...project} />
           </motion.div>
         ))}

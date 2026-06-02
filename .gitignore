@@ -26,3 +26,19 @@ src/dump
 
 SEO_README.md
 SEO_SUBMISSION_CHECKLIST.md
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Vercel / local deploy
+.vercel
+
+# Test / tooling
+coverage
+*.tsbuildinfo
+.cache
+
+# Accidental artifacts
+public/Untitled

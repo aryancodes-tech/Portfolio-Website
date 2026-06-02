@@ -3,16 +3,20 @@ import { motion } from 'framer-motion'
 
 /** Shared section title block: mono kicker + display heading + optional icon stamp. */
 export default function SectionHeading({ kicker, title, icon }) {
+  const showKicker = kicker != null && kicker.length > 0
+
   return (
     <div className="mb-8 md:mb-10">
-      <motion.p
-        initial={{ opacity: 0, x: -8 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="font-mono text-[10px] md:text-xs tracking-[0.35em] uppercase text-[hsl(var(--signal))] mb-3"
-      >
-        {kicker}
-      </motion.p>
+      {showKicker && (
+        <motion.p
+          initial={{ opacity: 0, x: -8 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="font-mono text-[10px] md:text-xs tracking-[0.35em] uppercase text-[hsl(var(--signal))] mb-3"
+        >
+          {kicker}
+        </motion.p>
+      )}
       <div className="flex flex-wrap items-end gap-3 md:gap-4">
         {icon && (
           <motion.span

@@ -1,3 +1,5 @@
+@import "./styles/fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -93,86 +95,6 @@ body {
 *::selection {
   background: hsl(var(--signal-deep));
   color: hsl(40 25% 99%);
-}
-
-@font-face {
-  font-family: "Gilroy";
-  src: url(./assets/fonts/Gilroy-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "PolySansGX";
-  src: url(./assets/fonts/PolySansGX.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "PolySansItalicGX";
-  src: url(./assets/fonts/PolySansItalicGX.ttf) format("truetype");
-}
-
-.PolySansSlimMono {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
-}
-.PolySansSlimMonoItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
-}
-.PolySansNeutralMono {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
-}
-.PolySansNeutralMonoItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
-}
-.PolySansMedianMono {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
-}
-.PolySansMedianMonoItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
-}
-.PolySansBulkyMono {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
-}
-.PolySansBulkyMonoItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
-}
-.PolySansSlim {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
-}
-.PolySansSlimItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
-}
-.PolySansNeutral {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
-}
-.PolySansNeutralItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
-}
-.PolySansMedian {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
-}
-.PolySansMedianItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
-}
-.PolySansBulky {
-  font-family: "PolySansGX";
-  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
-}
-.PolySansBulkyItalic {
-  font-family: "PolySansItalicGX";
-  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
 }
 
 html {

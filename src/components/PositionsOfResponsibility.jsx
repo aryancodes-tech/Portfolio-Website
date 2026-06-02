@@ -1,29 +1,13 @@
-import { motion } from 'framer-motion';
-import { Users, ArrowUpRight } from 'lucide-react';
-import SectionHeading from './SectionHeading';
-
-const positionsData = [
-  {
-    role: "Chairperson",
-    organization: "IEEE Student Branch, JIIT",
-    duration: "June 2023 - August 2024",
-    description: <>Led & organized <b className="text-[hsl(var(--ink))]">20+ events</b>, resulting in a <b className="text-[hsl(var(--ink))]">15% increase</b> in participation compared to the previous year.</>,
-    link: "https://ieeesbjiit.github.io/"
-  },
-  {
-    role: "Core Team Member",
-    organization: "OSDC, JIIT",
-    duration: "November 2021 - May 2023",
-    description: <>Lead Organizer of OSDHack&apos;23, a hybrid hackathon with over <b className="text-[hsl(var(--ink))]">400 offline</b> and <b className="text-[hsl(var(--ink))]">300 online</b> participants.</>,
-    link: ""
-  }
-];
+import { motion } from 'framer-motion'
+import { Users, ArrowUpRight } from 'lucide-react'
+import SectionHeading from './SectionHeading'
+import { positionsData } from '../constants/data/positions'
+import { fadeUpInView } from '../motion/variants'
 
 const PositionsOfResponsibility = () => {
   return (
     <section id="positions" className="mb-8 w-full px-1 py-8 sm:px-2 md:py-12">
       <SectionHeading
-        // kicker="05 — Community"
         title="Positions of Responsibility"
         icon={<Users strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />
@@ -32,10 +16,7 @@ const PositionsOfResponsibility = () => {
         {positionsData.map((position, index) => (
           <motion.article
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08 }}
+            {...fadeUpInView(index, { delayStep: 0.08 })}
             className="surface-card p-6 md:p-8"
           >
             <div className="flex flex-col gap-4">
@@ -84,7 +65,7 @@ const PositionsOfResponsibility = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PositionsOfResponsibility;
+export default PositionsOfResponsibility

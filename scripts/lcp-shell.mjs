@@ -16,7 +16,7 @@ export const LCP_CRITICAL_CSS = `    :root {
       background-color: hsl(var(--paper));
       background-image: linear-gradient(165deg, hsl(var(--paper)) 0%, hsl(38 22% 91%) 45%, hsl(200 12% 92%) 100%);
       color: hsl(var(--ink));
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Gilroy", "Syne", system-ui, sans-serif;
     }
     #static-lcp {
       box-sizing: border-box;
@@ -33,15 +33,22 @@ export const LCP_CRITICAL_CSS = `    :root {
       padding: 1.5rem;
     }
     .static-kicker {
+      display: none;
       margin: 0 0 1rem;
-      font-family: ui-monospace, monospace;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
       font-size: 11px;
       letter-spacing: 0.4em;
       text-transform: uppercase;
       color: hsl(var(--signal-deep));
     }
+    @media (min-width: 768px) {
+      .static-kicker {
+        display: block;
+      }
+    }
     .static-title {
       margin: 0 0 1rem;
+      font-family: "Syne", sans-serif;
       font-size: clamp(2.1rem, 5vw, 4.25rem);
       font-weight: 800;
       line-height: 1.05;
@@ -50,6 +57,7 @@ export const LCP_CRITICAL_CSS = `    :root {
     .static-summary {
       margin: 0 0 1.5rem;
       max-width: 36rem;
+      font-family: "Gilroy", sans-serif;
       font-size: 1.125rem;
       line-height: 1.625;
       color: hsl(var(--muted-fg));

@@ -65,14 +65,8 @@ const headBlock = `    <link rel="icon" type="image/svg+xml" href="/ag_black.svg
     <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />
     <meta name="twitter:creator" content="@aryancodes_tech" />
     <link rel="image_src" href="${OG_IMAGE_URL}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="${HERO_PHOTO_WEBP_SM}" as="image" type="image/webp" fetchpriority="high" media="(max-width: 480px)" />
     <link rel="preload" href="${HERO_PHOTO_WEBP}" as="image" type="image/webp" fetchpriority="high" media="(min-width: 481px)" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <title>${META_TITLE}</title>
     <script type="application/ld+json">
 ${jsonLd}

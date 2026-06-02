@@ -1,6 +1,7 @@
 import { FolderOpenDot } from "lucide-react"
-import { HERO_KICKER, PROFILE_IMAGE_ALT } from '../constants/seo'
+import { HERO_KICKER, PROFILE_IMAGE_ALT, SITE_URL } from '../constants/seo'
 import { HERO_PHOTO_WEBP, HERO_PHOTO_WEBP_SM } from '../constants/assets'
+import { RESUME_PATH } from '../constants/urls'
 
 /**
  * Full-width hero with asymmetric layout and blueprint-style grid (no canvas snow).
@@ -19,7 +20,7 @@ const HeroSection = () => {
 
         <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center">
           <div className="flex flex-col gap-6 lg:gap-8">
-            <p className="font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase">
+            <p className="hidden font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase md:block">
               {HERO_KICKER}
             </p>
             <h1 className="font-display text-[clamp(2.1rem,5vw,4.25rem)] font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--ink))]">
@@ -34,7 +35,7 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href="https://aryancodes.tech/resume"
+                href={`${SITE_URL}${RESUME_PATH}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
@@ -60,7 +61,7 @@ const HeroSection = () => {
                   width={280}
                   height={280}
                   decoding="async"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   className="aspect-square w-full max-w-[260px] object-cover sm:max-w-[280px]"
                 />
               </div>

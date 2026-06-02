@@ -1,0 +1,152 @@
+/**
+ * Self-hosted fonts from src/assets/fonts (no Google Fonts CDN).
+ */
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PolySansGX";
+  src: url("../assets/fonts/PolySansGX.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PolySansItalicGX";
+  src: url("../assets/fonts/PolySansItalicGX.ttf") format("truetype");
+  font-display: swap;
+}
+
+.PolySansSlimMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
+}
+.PolySansSlimMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 50, "opsz" 200, "wdth" 50;
+}
+.PolySansNeutralMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
+}
+.PolySansNeutralMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 100, "opsz" 200, "wdth" 50;
+}
+.PolySansMedianMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
+}
+.PolySansMedianMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 150, "opsz" 200, "wdth" 50;
+}
+.PolySansBulkyMono {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
+}
+.PolySansBulkyMonoItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 200, "opsz" 200, "wdth" 50;
+}
+.PolySansSlim {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
+}
+.PolySansSlimItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 50, "opsz" 100, "wdth" 50;
+}
+.PolySansNeutral {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
+}
+.PolySansNeutralItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 100, "opsz" 100, "wdth" 50;
+}
+.PolySansMedian {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
+}
+.PolySansMedianItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 150, "opsz" 100, "wdth" 50;
+}
+.PolySansBulky {
+  font-family: "PolySansGX";
+  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
+}
+.PolySansBulkyItalic {
+  font-family: "PolySansItalicGX";
+  font-variation-settings: "wght" 200, "opsz" 100, "wdth" 50;
+}
