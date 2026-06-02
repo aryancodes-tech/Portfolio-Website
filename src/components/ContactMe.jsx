@@ -4,7 +4,7 @@ import { IoLogoLinkedin } from 'react-icons/io5'
 import { FaXTwitter } from 'react-icons/fa6'
 import CopyToClipboardButton from './CopyToClipboardButton'
 import './ContactMe.css'
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { CONTACT_EMAIL, SOCIAL_PROFILES } from '../constants/seo'
 import { fadeInStaggerContainer, fadeInStaggerItem } from '../motion/variants'
 
@@ -31,7 +31,7 @@ const ContactMe = () => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,hsl(var(--signal)/0.35),transparent_55%)]" aria-hidden />
 
-      <m.div
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -55,7 +55,7 @@ const ContactMe = () => {
           <CopyToClipboardButton content={CONTACT_EMAIL} />
         </div>
 
-        <m.div
+        <motion.div
           variants={fadeInStaggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -65,7 +65,7 @@ const ContactMe = () => {
           {SOCIAL_PROFILES.map(({ id, url, ariaLabel }) => {
             const Icon = SOCIAL_ICONS[id]
             return (
-              <m.div key={id} variants={fadeInStaggerItem}>
+              <motion.div key={id} variants={fadeInStaggerItem}>
                 <a
                   href={url}
                   target="_blank"
@@ -75,11 +75,11 @@ const ContactMe = () => {
                 >
                   <Icon aria-hidden />
                 </a>
-              </m.div>
+              </motion.div>
             )
           })}
-        </m.div>
-      </m.div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }
