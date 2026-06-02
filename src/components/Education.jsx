@@ -1,4 +1,4 @@
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { GraduationCap } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import ExternalLinkRow from './ExternalLinkRow'
@@ -18,7 +18,7 @@ const Education = () => {
       />
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-        <m.article
+        <motion.article
           {...fadeUpInView(0)}
           className="surface-card group relative flex h-full flex-col gap-5 p-6 md:p-8"
         >
@@ -49,11 +49,11 @@ const Education = () => {
               </span>
             ))}
           </div>
-        </m.article>
+        </motion.article>
 
         <div className="grid grid-cols-1 gap-6">
           {[1, 2].map((idx) => (
-            <m.article
+            <motion.article
               key={idx}
               {...fadeUpInView(idx)}
               className="surface-card flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8"
@@ -73,7 +73,7 @@ const Education = () => {
               <span className="pill-signal font-mono text-xs uppercase tracking-wide md:text-left">
                 {educationData[idx].percentage}
               </span>
-            </m.article>
+            </motion.article>
           ))}
         </div>
       </div>

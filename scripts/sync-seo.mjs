@@ -65,7 +65,8 @@ const headBlock = `    <link rel="icon" type="image/svg+xml" href="/ag_black.svg
     <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />
     <meta name="twitter:creator" content="@aryancodes_tech" />
     <link rel="image_src" href="${OG_IMAGE_URL}" />
-    <link rel="preload" as="image" href="${HERO_PHOTO_WEBP_SM}" type="image/webp" fetchpriority="high" imagesrcset="${HERO_PHOTO_WEBP_SM} 320w, ${HERO_PHOTO_WEBP} 560w" imagesizes="(max-width: 480px) 260px, 280px" />
+    <link rel="preload" href="${HERO_PHOTO_WEBP_SM}" as="image" type="image/webp" fetchpriority="high" media="(max-width: 480px)" />
+    <link rel="preload" href="${HERO_PHOTO_WEBP}" as="image" type="image/webp" fetchpriority="high" media="(min-width: 481px)" />
     <title>${META_TITLE}</title>
     <script type="application/ld+json">
 ${jsonLd}

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import Navbar from "../components/Navbar"
 import HeroSection from "../components/HeroSection"
-import MotionProvider from '../motion/MotionProvider'
 
 const Education = lazy(() => import("../components/Education"))
 const Experience = lazy(() => import("../components/Experience"))
@@ -28,17 +27,15 @@ const Home = () => {
       <Navbar />
       <HeroSection />
 
-      <MotionProvider>
-        <Suspense fallback={<SectionFallback />}>
-          <Education />
-          <Experience />
-          <Projects />
-          <HonorsAndAwards />
-          <PositionsOfResponsibility />
-          <ContactMe />
-          <ResumeButton />
-        </Suspense>
-      </MotionProvider>
+      <Suspense fallback={<SectionFallback />}>
+        <Education />
+        <Experience />
+        <Projects />
+        <HonorsAndAwards />
+        <PositionsOfResponsibility />
+        <ContactMe />
+        <ResumeButton />
+      </Suspense>
     </main>
   )
 }

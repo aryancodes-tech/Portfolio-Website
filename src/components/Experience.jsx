@@ -1,4 +1,4 @@
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Briefcase } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import ExternalLinkRow from './ExternalLinkRow'
@@ -19,13 +19,13 @@ const Experience = () => {
 
       <div className="flex flex-col gap-8">
         {experiences.map((exp, index) => (
-          <m.article
+          <motion.article
             key={index}
             {...fadeUpInView(index, { y: 22 })}
             className="surface-card relative p-6 md:p-8"
           >
             <div className="flex flex-col gap-8 md:flex-row">
-              <m.a
+              <motion.a
                 whileHover={{ scale: 1.04 }}
                 href={exp.website}
                 target="_blank"
@@ -46,7 +46,7 @@ const Experience = () => {
                     className="h-full w-full object-cover"
                   />
                 </picture>
-              </m.a>
+              </motion.a>
 
               <div className="flex min-w-0 flex-1 flex-col gap-4">
                 <div>
@@ -72,7 +72,7 @@ const Experience = () => {
                 </div>
               </div>
             </div>
-          </m.article>
+          </motion.article>
         ))}
       </div>
     </section>
