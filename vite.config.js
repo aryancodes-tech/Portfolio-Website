@@ -8,6 +8,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Vite SPA: never bundle Next.js-specific analytics entry (breaks on Vercel build)
+      "@vercel/analytics/next": path.resolve(
+        __dirname,
+        "node_modules/@vercel/analytics/dist/react/index.mjs"
+      ),
     },
   },
   build: {
