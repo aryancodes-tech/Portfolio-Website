@@ -1,36 +1,27 @@
 import contact_bg from '../assets/contact-bg.jpg'
-import { FaGithub } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io5";
-import { FaXTwitter } from "react-icons/fa6";
-import CopyToClipboardButton from './CopyToClipboardButton';
+import { FaGithub } from 'react-icons/fa'
+import { IoLogoLinkedin } from 'react-icons/io5'
+import { FaXTwitter } from 'react-icons/fa6'
+import CopyToClipboardButton from './CopyToClipboardButton'
 import './ContactMe.css'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { CONTACT_EMAIL, SOCIAL_PROFILES } from '../constants/seo'
+import { fadeInStaggerContainer, fadeInStaggerItem } from '../motion/variants'
+
+const SOCIAL_ICONS = {
+  github: FaGithub,
+  linkedin: IoLogoLinkedin,
+  x: FaXTwitter,
+}
 
 const ContactMe = () => {
-
   const defineBG = {
     backgroundImage: `linear-gradient(165deg, hsl(222 47% 8% / 0.92) 0%, hsl(18 9% 2% / 0.88) 100%), url(${contact_bg})`,
-    backgroundColor: "hsl(222 47% 8%)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
-  const socialVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+    backgroundColor: 'hsl(222 47% 8%)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }
 
   return (
     <div
@@ -48,9 +39,6 @@ const ContactMe = () => {
         className="relative flex flex-col items-center justify-center gap-8 py-24 md:gap-10 md:py-32"
       >
         <div className="text-center">
-          {/* <p className="font-mono text-[10px] tracking-[0.45em] text-[hsl(var(--signal))] uppercase md:text-xs">
-            06 — Ping
-          </p> */}
           <h2 className="font-display mt-3 text-4xl font-extrabold tracking-tight text-[hsl(40_25%_98%)] md:text-6xl">
             Let&apos;s talk
           </h2>
@@ -63,34 +51,33 @@ const ContactMe = () => {
 
         <div className="emailClass group flex flex-row items-center gap-2 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] px-4 py-3 shadow-[6px_6px_0_hsl(var(--signal)/0.45)] sm:px-6 sm:py-4">
           <span className="font-mono text-xs font-semibold uppercase tracking-wider text-[hsl(var(--muted-foreground))]">email</span>
-          <span className="text-[hsl(var(--ink))]">aryancodes.tech@gmail.com</span>
-          <CopyToClipboardButton content="aryancodes.tech@gmail.com" />
+          <span className="text-[hsl(var(--ink))]">{CONTACT_EMAIL}</span>
+          <CopyToClipboardButton content={CONTACT_EMAIL} />
         </div>
 
         <motion.div
-          variants={socialVariants}
+          variants={fadeInStaggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="socials-container mb-4 flex flex-row gap-8 text-5xl md:gap-10"
         >
-          <motion.div variants={itemVariant}>
-            <a href="https://github.com/aryancodes-tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on GitHub" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <FaGithub aria-hidden />
-            </a>
-          </motion.div>
-
-          <motion.div variants={itemVariant}>
-            <a href="https://linkedin.com/in/aryancodes-tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on LinkedIn" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <IoLogoLinkedin aria-hidden />
-            </a>
-          </motion.div>
-
-          <motion.div variants={itemVariant}>
-            <a href="https://x.com/aryancodes_tech" target="_blank" rel="noopener noreferrer" aria-label="Aryan Gupta on X" className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]">
-              <FaXTwitter aria-hidden />
-            </a>
-          </motion.div>
+          {SOCIAL_PROFILES.map(({ id, url, ariaLabel }) => {
+            const Icon = SOCIAL_ICONS[id]
+            return (
+              <motion.div key={id} variants={fadeInStaggerItem}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={ariaLabel}
+                  className="inline-flex rounded-xl border-2 border-transparent p-2 text-[hsl(40_25%_98%)] transition-colors hover:border-[hsl(var(--signal))] hover:text-[hsl(var(--signal))]"
+                >
+                  <Icon aria-hidden />
+                </a>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </motion.div>
     </div>

@@ -1,16 +1,19 @@
-import { useState, useEffect, useRef } from "react"
-import { Menu } from "lucide-react"
+import { useState, useEffect, useRef } from 'react'
+import { Menu } from 'lucide-react'
 
 /** Primary in-page nav targets (crawlable hash links). */
 const NAV_LINKS = [
   { href: '#education', label: 'Education' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
-  { href: '#contactme', label: 'Contact' },
+  { href: '#contactme', label: 'Contact', isCta: true },
 ]
 
 const linkClass =
-  "font-mono text-[11px] tracking-[0.12em] uppercase text-[hsl(var(--ink))] transition-colors hover:text-[hsl(var(--signal-deep))]"
+  'font-mono text-[11px] tracking-[0.12em] uppercase text-[hsl(var(--ink))] transition-colors hover:text-[hsl(var(--signal-deep))]'
+
+const contactCtaClass =
+  'inline-block rounded-xl bg-[hsl(var(--ink))] px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] no-underline shadow-[4px_4px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,19 +32,22 @@ const Navbar = () => {
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
 
   const handleMenuClick = () => {
-    setIsOpen(prev => !prev)
+    setIsOpen((prev) => !prev)
   }
 
   const handleLinkClick = () => {
     setIsOpen(false)
   }
+
+  const desktopNavLinks = NAV_LINKS.filter((link) => !link.isCta)
+  const contactLink = NAV_LINKS.find((link) => link.isCta)
 
   return (
     <header className="sticky top-0 z-50 px-3 pt-4 pb-2 sm:px-5 animate-[nav-in_0.4s_ease-out]">
@@ -98,25 +104,25 @@ const Navbar = () => {
 
         <nav className="hidden lg:block" aria-label="Primary">
           <ul className="flex flex-row flex-wrap items-center gap-x-1 gap-y-2">
-            <li>
-              <a href="#education" className={linkClass}>Education</a>
-            </li>
-            <li className="px-2 font-mono text-[hsl(var(--border))]" aria-hidden>·</li>
-            <li>
-              <a href="#experience" className={linkClass}>Experience</a>
-            </li>
-            <li className="px-2 font-mono text-[hsl(var(--border))]" aria-hidden>·</li>
-            <li>
-              <a href="#projects" className={linkClass}>Projects</a>
-            </li>
-            <li className="pl-6">
-              <a
-                href="#contactme"
-                className="inline-block rounded-xl bg-[hsl(var(--ink))] px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--surface))] no-underline shadow-[4px_4px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
-              >
-                Contact
-              </a>
-            </li>
+            {desktopNavLinks.map(({ href, label }, index) => (
+              <li key={href} className="flex items-center">
+                {index > 0 && (
+                  <span className="px-2 font-mono text-[hsl(var(--border))]" aria-hidden>
+                    ·
+                  </span>
+                )}
+                <a href={href} className={linkClass}>
+                  {label}
+                </a>
+              </li>
+            ))}
+            {contactLink && (
+              <li className="pl-6">
+                <a href={contactLink.href} className={contactCtaClass}>
+                  {contactLink.label}
+                </a>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

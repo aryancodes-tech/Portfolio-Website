@@ -105,6 +105,28 @@ export const SAME_AS = [
 ]
 
 /**
+ * Social profiles for the contact section (url + accessible label).
+ * @type {readonly { url: string, ariaLabel: string, id: 'github' | 'linkedin' | 'x' }[]}
+ */
+export const SOCIAL_PROFILES = [
+  {
+    id: 'github',
+    url: 'https://github.com/aryancodes-tech',
+    ariaLabel: 'Aryan Gupta on GitHub',
+  },
+  {
+    id: 'linkedin',
+    url: 'https://linkedin.com/in/aryancodes-tech',
+    ariaLabel: 'Aryan Gupta on LinkedIn',
+  },
+  {
+    id: 'x',
+    url: 'https://x.com/aryancodes_tech',
+    ariaLabel: 'Aryan Gupta on X',
+  },
+]
+
+/**
  * Skills and topics for schema.org knowsAbout.
  * @type {readonly string[]}
  */
