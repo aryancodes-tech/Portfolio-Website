@@ -1,12 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.aryancodes.tech" }],
-      "destination": "https://aryancodes.tech/:path*",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*).(webp|jpg|jpeg|png|svg|ico|ttf|woff|woff2)",

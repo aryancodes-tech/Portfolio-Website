@@ -2,7 +2,7 @@
  * Canonical site URL (no trailing slash).
  * @type {string}
  */
-export const SITE_URL = 'https://aryancodes.tech'
+export const SITE_URL = 'https://www.aryancodes.tech'
 
 /**
  * Primary document path used for canonical and Open Graph URLs.
