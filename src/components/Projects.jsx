@@ -1,6 +1,6 @@
 import ProjectCard from './ProjectCard'
 import { Sparkles } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import { projectsData } from '../constants/data/projects'
 import { projectGridContainer, projectGridItem } from '../motion/variants'
@@ -17,18 +17,18 @@ const Projects = () => {
         icon={<Sparkles strokeWidth={2} size={22} className="md:h-7 md:w-7" />}
       />
 
-      <motion.div
+      <m.div
         variants={projectGridContainer}
         initial="hidden"
         animate="show"
         className="grid grid-cols-1 gap-8 md:grid-cols-2"
       >
         {projectsData.map((project, index) => (
-          <motion.div key={index} variants={projectGridItem}>
+          <m.div key={index} variants={projectGridItem}>
             <ProjectCard {...project} />
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   )
 }

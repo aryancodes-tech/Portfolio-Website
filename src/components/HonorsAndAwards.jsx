@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Award } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import { awardsData } from '../constants/data/honors'
@@ -16,7 +16,7 @@ const HonorsAndAwards = () => {
         {awardsData.map((award, index) => {
           const AwardIcon = award.icon
           return (
-            <motion.article
+            <m.article
               key={index}
               {...fadeUpInView(index, { delayStep: 0.08 })}
               className="surface-card relative overflow-hidden p-6 md:p-8"
@@ -35,7 +35,7 @@ const HonorsAndAwards = () => {
                   </span>
                 </div>
 
-                <motion.div
+                <m.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
@@ -49,7 +49,7 @@ const HonorsAndAwards = () => {
                 className="pointer-events-none absolute -bottom-4 -right-2 h-28 w-28 text-[hsl(var(--ink))] opacity-[0.06]"
                 strokeWidth={1}
               />
-            </motion.article>
+            </m.article>
           )
         })}
       </div>

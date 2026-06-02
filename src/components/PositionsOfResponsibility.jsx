@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Users, ArrowUpRight } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import { positionsData } from '../constants/data/positions'
@@ -14,14 +14,14 @@ const PositionsOfResponsibility = () => {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
         {positionsData.map((position, index) => (
-          <motion.article
+          <m.article
             key={index}
             {...fadeUpInView(index, { delayStep: 0.08 })}
             className="surface-card p-6 md:p-8"
           >
             <div className="flex flex-col gap-4">
               <div className="flex items-start justify-between gap-3">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.28 }}
@@ -44,10 +44,10 @@ const PositionsOfResponsibility = () => {
                       {position.duration}
                     </p>
                   </div>
-                </motion.div>
+                </m.div>
 
                 {position.link.length > 0 && (
-                  <motion.a
+                  <m.a
                     href={position.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -56,12 +56,12 @@ const PositionsOfResponsibility = () => {
                     aria-label="Organization website"
                   >
                     <ArrowUpRight size={20} />
-                  </motion.a>
+                  </m.a>
                 )}
               </div>
               <p className="leading-relaxed text-[hsl(var(--muted-foreground))]">{position.description}</p>
             </div>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </section>
