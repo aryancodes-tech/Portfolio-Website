@@ -142,7 +142,7 @@ export const HERO_KICKER =
  * @type {string}
  */
 export const HERO_SUMMARY_PLAIN =
-  'Backend engineer focused on scalable APIs, microservices, and distributed systems — from PostgreSQL internals to warehouse-scale workflows.'
+  'Backend engineer focused on scalable APIs, microservices, and distributed systems - from PostgreSQL internals to warehouse-scale workflows.'
 
 /**
  * Accessible label for the profile image.

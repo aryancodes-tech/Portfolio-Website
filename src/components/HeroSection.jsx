@@ -19,7 +19,7 @@ const HeroSection = () => {
 
         <div className="relative grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center">
           <div className="flex flex-col gap-6 lg:gap-8">
-            <p className="font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase">
+            <p className="hidden font-mono text-[11px] tracking-[0.4em] text-[hsl(var(--signal-deep))] uppercase md:block">
               {HERO_KICKER}
             </p>
             <h1 className="font-display text-[clamp(2.1rem,5vw,4.25rem)] font-extrabold leading-[1.05] tracking-tight text-[hsl(var(--ink))]">
