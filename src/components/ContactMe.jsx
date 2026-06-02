@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const ContactMe = () => {
 
   const defineBG = {
-    backgroundImage: `linear-gradient(165deg, hsl(222 47% 8% / 0.92) 0%, hsl(18 45% 12% / 0.88) 100%), url(${contact_bg})`,
+    backgroundImage: `linear-gradient(165deg, hsl(222 47% 8% / 0.92) 0%, hsl(18 9% 2% / 0.88) 100%), url(${contact_bg})`,
     backgroundColor: "hsl(222 47% 8%)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
