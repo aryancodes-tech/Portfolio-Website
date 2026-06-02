@@ -190,7 +190,3 @@ Push to the connected branch to deploy; no extra build command beyond `npm run b
 - **Agent skill:** `.cursor/skills/portfolio-website/SKILL.md`
 
 These describe design language, constants usage, font/image maintenance, and Lighthouse-oriented workflows for AI-assisted development.
-
-## License
-
-Private portfolio project. Contact the repository owner for reuse terms.
