@@ -1,5 +1,6 @@
 import DOMPurify from 'dompurify'
 import { marked } from 'marked'
+import { BLOG_MANIFEST } from '../constants/blog.manifest'
 
 /**
  * @typedef {object} BlogFrontmatter
@@ -146,10 +147,38 @@ function parseTags(value) {
 }
 
 /**
- * Build a blog index by discovering markdown files in `src/content/blog/`.
- * Naming convention:
- * - Series posts: `src/content/blog/<topic>/<post>.md`
- * - Standalone: `src/content/blog/<post>.md`
+ * @param {BlogDoc} doc
+ * @returns {BlogPostIndexItem}
+ */
+function toIndexPost(doc) {
+  const title = doc.frontmatter.title ?? humanizeSlug(doc.postSlug)
+  const description = doc.frontmatter.description ?? ''
+  const dateISO = doc.frontmatter.date ?? ''
+  const tags = doc.frontmatter.tags ?? []
+  return {
+    entrySlug: doc.entrySlug,
+    postSlug: doc.postSlug,
+    title,
+    description,
+    dateISO,
+    tags,
+    path: doc.path,
+  }
+}
+
+/**
+ * @param {Map<string, BlogDoc>} docByKey
+ * @param {string} entrySlug
+ * @param {string} postSlug
+ * @returns {BlogDoc | null}
+ */
+function findDoc(docByKey, entrySlug, postSlug) {
+  return docByKey.get(`${entrySlug}/${postSlug}`) ?? null
+}
+
+/**
+ * Load markdown from `src/content/blog/`, then filter and order using `blog.manifest.js`.
+ * Only slugs listed in the manifest are published; other files remain as drafts in the repo.
  *
  * @returns {{ items: readonly BlogIndexItem[], docs: readonly BlogDoc[] }}
  */
@@ -162,7 +191,7 @@ export function loadBlogContent() {
   })
 
   /** @type {BlogDoc[]} */
-  const docs = Object.entries(modules)
+  const allDocs = Object.entries(modules)
     .map(([path, markdown]) => {
       const normalized = path.replaceAll('\\', '/')
       const rel = normalized.split('/src/content/blog/')[1] ?? ''
@@ -183,65 +212,56 @@ export function loadBlogContent() {
     })
     .filter((d) => d.entrySlug.length > 0 && d.postSlug.length > 0)
 
-  /** @type {Map<string, BlogDoc[]>} */
-  const byEntry = new Map()
-  for (const doc of docs) {
-    const current = byEntry.get(doc.entrySlug) ?? []
-    current.push(doc)
-    byEntry.set(doc.entrySlug, current)
+  /** @type {Map<string, BlogDoc>} */
+  const docByKey = new Map()
+  for (const doc of allDocs) {
+    docByKey.set(`${doc.entrySlug}/${doc.postSlug}`, doc)
   }
 
+  /** @type {BlogDoc[]} */
+  const publishedDocs = []
   /** @type {BlogIndexItem[]} */
   const items = []
 
-  for (const [entrySlug, entryDocs] of byEntry.entries()) {
-    const isStandalone = entryDocs.length === 1 && entryDocs[0].postSlug === entrySlug
+  for (const entrySlug of BLOG_MANIFEST.standalone) {
+    if (entrySlug.length === 0) continue
+    const doc = findDoc(docByKey, entrySlug, entrySlug)
+    if (!doc) continue
 
-    const toIndexPost = (doc) => {
-      const title = doc.frontmatter.title ?? humanizeSlug(doc.postSlug)
-      const description = doc.frontmatter.description ?? ''
-      const dateISO = doc.frontmatter.date ?? ''
-      const tags = doc.frontmatter.tags ?? []
-      return {
-        entrySlug,
-        postSlug: doc.postSlug,
-        title,
-        description,
-        dateISO,
-        tags,
-        path: doc.path,
-      }
+    publishedDocs.push(doc)
+    items.push({
+      type: 'standalone',
+      entrySlug,
+      post: toIndexPost(doc),
+    })
+  }
+
+  for (const [entrySlug, postSlugs] of Object.entries(BLOG_MANIFEST.series)) {
+    if (entrySlug.length === 0) continue
+
+    /** @type {BlogPostIndexItem[]} */
+    const posts = []
+    for (const postSlug of postSlugs) {
+      if (postSlug.length === 0) continue
+      const doc = findDoc(docByKey, entrySlug, postSlug)
+      if (!doc) continue
+
+      publishedDocs.push(doc)
+      posts.push(toIndexPost(doc))
     }
 
-    if (isStandalone) {
-      const post = toIndexPost(entryDocs[0])
-      items.push({ type: 'standalone', entrySlug, post })
-      continue
-    }
-
-    const posts = entryDocs
-      .slice()
-      .sort((a, b) => (a.frontmatter.date ?? '').localeCompare(b.frontmatter.date ?? ''))
-      .map(toIndexPost)
-
-    // Topic label should be the global series name (derived from folder slug),
-    // not one of the post titles.
-    const topicTitle = humanizeSlug(entrySlug)
-
-    const topicTags = dedupeTags(posts.flatMap((p) => p.tags))
+    if (posts.length === 0) continue
 
     items.push({
       type: 'series',
       entrySlug,
-      title: topicTitle,
-      tags: topicTags,
+      title: humanizeSlug(entrySlug),
+      tags: dedupeTags(posts.flatMap((p) => p.tags)),
       posts,
     })
   }
 
-  items.sort((a, b) => a.entrySlug.localeCompare(b.entrySlug))
-
-  return { items, docs }
+  return { items, docs: publishedDocs }
 }
 
 /**

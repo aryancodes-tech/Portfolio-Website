@@ -2,6 +2,9 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronRight, Search } from 'lucide-react'
 import Navbar from '../components/Navbar'
+import BlogEmptyState from '../components/blog/BlogEmptyState'
+import SiteButton from '../components/SiteButton'
+import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from '../constants/copy'
 import { BLOG_PATH } from '../constants/urls'
 import { loadBlogContent } from '../blog/content'
 
@@ -45,6 +48,12 @@ const Blog = () => {
   const seriesItems = filteredItems.filter((i) => i.type === 'series')
   const standaloneItems = filteredItems.filter((i) => i.type === 'standalone')
 
+  const hasPublishedPosts = items.length > 0
+  const isSearchActive = normalizedQuery.length > 0
+  const showEmptyCatalog = !hasPublishedPosts
+  const showEmptySearch = hasPublishedPosts && isSearchActive && filteredItems.length === 0
+  const showPostList = hasPublishedPosts && !showEmptySearch
+
   return (
     <main className="content site-shell pb-16" role="main" aria-label="Blog">
       <Navbar />
@@ -54,44 +63,58 @@ const Blog = () => {
           <div className="hero-grid-bg pointer-events-none absolute inset-0 opacity-[0.55]" aria-hidden />
           <div className="relative flex flex-col gap-4">
             <h1 className="font-display text-4xl font-extrabold tracking-tight text-[hsl(var(--ink))] sm:text-5xl">
-              Notes, writeups, and systems thinking.
+              {BLOG_PAGE_TITLE}
             </h1>
             <p className="max-w-3xl text-lg leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-xl">
-              This is a small, lightweight blog inside my portfolio. Some posts are standalones; others are part of a topic series.
+              {BLOG_PAGE_DESCRIPTION}
             </p>
 
-            <div className="mt-2 flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex w-full max-w-2xl items-center gap-2 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] px-3 py-2.5 shadow-[6px_6px_0_hsl(var(--ink)/0.08)]">
-                <span
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] text-[hsl(var(--muted-foreground))]"
-                  aria-hidden
-                >
-                  <Search size={18} />
-                </span>
-                <input
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search titles / descriptions…"
-                  className="w-full bg-transparent font-mono text-[12px] tracking-wide text-[hsl(var(--ink))] placeholder:text-[hsl(var(--muted-foreground))] focus:outline-none"
-                  aria-label="Search blog posts"
-                />
-                {query.trim().length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => setQuery('')}
-                    className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-3 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--ink))]"
+            {hasPublishedPosts && (
+              <div className="mt-2 flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex w-full max-w-2xl items-center gap-2 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] px-3 py-2.5 shadow-[6px_6px_0_hsl(var(--ink)/0.08)]">
+                  <span
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] text-[hsl(var(--muted-foreground))]"
+                    aria-hidden
                   >
-                    Clear
-                  </button>
-                )}
+                    <Search size={18} />
+                  </span>
+                  <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search titles / descriptions…"
+                    className="w-full bg-transparent font-mono text-[12px] tracking-wide text-[hsl(var(--ink))] placeholder:text-[hsl(var(--muted-foreground))] focus:outline-none"
+                    aria-label="Search blog posts"
+                  />
+                  {query.trim().length > 0 && (
+                    <SiteButton
+                      type="button"
+                      variant="secondary"
+                      size="compact"
+                      onClick={() => setQuery('')}
+                    >
+                      Clear
+                    </SiteButton>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </header>
 
       <section className="px-1 pt-10 sm:px-2" aria-label="Blog entries">
         <div className="surface-card overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))]">
+          {showEmptyCatalog && <BlogEmptyState variant="catalog" />}
+
+          {showEmptySearch && (
+            <BlogEmptyState
+              variant="search"
+              query={query.trim()}
+              onClearSearch={() => setQuery('')}
+            />
+          )}
+
+          {showPostList && (
           <div className="divide-y divide-[hsl(var(--border))]">
             {seriesItems.map((topic) => {
               const isOpen = openTopics.has(topic.entrySlug)
@@ -205,18 +228,8 @@ const Blog = () => {
                 </Link>
               )
             })}
-
-            {filteredItems.length === 0 && (
-              <div className="px-5 py-10 text-center">
-                <p className="font-display text-xl font-bold tracking-tight text-[hsl(var(--ink))]">
-                  No matches.
-                </p>
-                <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">
-                  Try a different keyword (title/description are searchable).
-                </p>
-              </div>
-            )}
           </div>
+          )}
         </div>
       </section>
     </main>

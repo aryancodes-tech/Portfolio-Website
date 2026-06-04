@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import Navbar from '../components/Navbar'
+import SiteButton from '../components/SiteButton'
 import { BLOG_PATH, HOME_PATH } from '../constants/urls'
 import { loadBlogContent, renderMarkdown, resolveDoc } from '../blog/content'
 
@@ -100,18 +101,12 @@ const BlogReader = () => {
               Try going back to the blog index.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to={BLOG_PATH}
-                className="inline-flex items-center justify-center rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-[hsl(var(--surface))] no-underline shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5"
-              >
+              <SiteButton variant="primary" to={BLOG_PATH}>
                 Back to blog
-              </Link>
-              <Link
-                to={HOME_PATH}
-                className="inline-flex items-center justify-center rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] px-5 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-[hsl(var(--ink))] no-underline shadow-[5px_5px_0_hsl(var(--ink)/0.12)] transition-transform hover:-translate-y-0.5"
-              >
+              </SiteButton>
+              <SiteButton variant="secondary" to={HOME_PATH}>
                 Home
-              </Link>
+              </SiteButton>
             </div>
           </div>
         </section>
@@ -257,12 +252,9 @@ const BlogReader = () => {
             ref={articleRef}
           >
             <div className="flex items-center justify-between gap-3 pb-4">
-              <Link
-                to={BLOG_PATH}
-                className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--paper))] px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--ink))] no-underline shadow-[4px_4px_0_hsl(var(--ink)/0.08)] transition-transform hover:-translate-y-0.5"
-              >
+              <SiteButton variant="secondary" size="compact" to={BLOG_PATH}>
                 ← Back to blog
-              </Link>
+              </SiteButton>
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-[hsl(var(--muted-foreground))]">
                 {doc.frontmatter.date ?? ''}
               </p>
