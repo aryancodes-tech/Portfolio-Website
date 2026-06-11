@@ -11,6 +11,18 @@ export const HOME_PATH = '/'
 export const RESUME_PATH = '/resume'
 
 /**
+ * In-app path for the blog landing page.
+ * @type {string}
+ */
+export const BLOG_PATH = '/blog'
+
+/**
+ * In-app base path for individual blog readers (topic or standalone post).
+ * @type {string}
+ */
+export const BLOG_READER_BASE_PATH = '/blog'
+
+/**
  * Absolute URL for the DSA microsite (subdomain).
  * @type {string}
  */

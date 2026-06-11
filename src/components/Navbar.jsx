@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
+import { BLOG_PATH, HOME_PATH } from '../constants/urls'
 
 /** Primary in-page nav targets (crawlable hash links). */
 const NAV_LINKS = [
   { href: '#education', label: 'Education' },
   { href: '#experience', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
+  { href: BLOG_PATH, label: 'Blog', isRoute: true },
   { href: '#contactme', label: 'Contact', isCta: true },
 ]
 
@@ -19,6 +22,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
+  const location = useLocation()
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -48,11 +52,32 @@ const Navbar = () => {
 
   const desktopNavLinks = NAV_LINKS.filter((link) => !link.isCta)
   const contactLink = NAV_LINKS.find((link) => link.isCta)
+  const isHomeRoute = location.pathname === HOME_PATH
+
+  /**
+   * For hash links, ensure we always target the home route.
+   * Example: from /blog, "#projects" should navigate to "/#projects".
+   * @param {string} href
+   * @returns {string}
+   */
+  const resolveHref = (href) => {
+    if (href.startsWith('#')) {
+      return isHomeRoute ? href : `${HOME_PATH}${href}`
+    }
+    return href
+  }
 
   return (
     <header className="sticky top-0 z-50 px-3 pt-4 pb-2 sm:px-5 animate-[nav-in_0.4s_ease-out]">
       <div className="content flex flex-row items-center justify-between gap-4 rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))]/95 px-4 py-3 shadow-[6px_6px_0_hsl(var(--signal)/0.25)] backdrop-blur-md md:px-6">
-        <a href="#" className="flex min-w-0 items-center gap-3 no-underline" aria-label="Aryan Gupta — home">
+        <Link
+          to={HOME_PATH}
+          className="flex min-w-0 items-center gap-3 no-underline"
+          aria-label="Aryan Gupta — home"
+          onClick={() => {
+            if (!isHomeRoute) setIsOpen(false)
+          }}
+        >
           <img
             src="/ag_black.svg"
             className="h-11 w-11 shrink-0 rounded-xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--paper))] p-1.5"
@@ -66,7 +91,7 @@ const Navbar = () => {
               portfolio
             </span>
           </div>
-        </a>
+        </Link>
 
         <div className="relative shrink-0 lg:hidden">
           <button
@@ -90,11 +115,17 @@ const Navbar = () => {
               className="absolute right-0 top-full z-30 mt-2 w-[min(280px,calc(100vw-1.5rem))] origin-top-right rounded-2xl border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-4 shadow-[8px_8px_0_hsl(var(--ink)/0.12)]"
             >
               <ul className="flex flex-col gap-3 text-center">
-                {NAV_LINKS.map(({ href, label }) => (
+                {NAV_LINKS.map(({ href, label, isRoute }) => (
                   <li key={href}>
-                    <a href={href} className={linkClass} onClick={handleLinkClick}>
-                      {label}
-                    </a>
+                    {isRoute ? (
+                      <Link to={href} className={linkClass} onClick={handleLinkClick}>
+                        {label}
+                      </Link>
+                    ) : (
+                      <a href={resolveHref(href)} className={linkClass} onClick={handleLinkClick}>
+                        {label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -111,14 +142,20 @@ const Navbar = () => {
                     ·
                   </span>
                 )}
-                <a href={href} className={linkClass}>
-                  {label}
-                </a>
+                {href.startsWith('/') ? (
+                  <Link to={href} className={linkClass}>
+                    {label}
+                  </Link>
+                ) : (
+                  <a href={resolveHref(href)} className={linkClass}>
+                    {label}
+                  </a>
+                )}
               </li>
             ))}
             {contactLink && (
               <li className="pl-6">
-                <a href={contactLink.href} className={contactCtaClass}>
+                <a href={resolveHref(contactLink.href)} className={contactCtaClass}>
                   {contactLink.label}
                 </a>
               </li>

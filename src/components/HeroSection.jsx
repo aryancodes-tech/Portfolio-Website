@@ -1,7 +1,9 @@
-import { FolderOpenDot } from "lucide-react"
+import { FolderOpenDot, NotebookText } from "lucide-react"
 import { HERO_KICKER, PROFILE_IMAGE_ALT, SITE_URL } from '../constants/seo'
 import { HERO_PHOTO_WEBP, HERO_PHOTO_WEBP_SM } from '../constants/assets'
-import { RESUME_PATH } from '../constants/urls'
+import SiteButton from './SiteButton'
+import { BLOG_PATH, RESUME_PATH } from '../constants/urls'
+import { HERO_BLOG_CTA_LABEL } from '../constants/copy'
 
 /**
  * Full-width hero with asymmetric layout and blueprint-style grid (no canvas snow).
@@ -33,19 +35,34 @@ const HeroSection = () => {
               <span className="text-[hsl(var(--ink))]">distributed systems</span> — from PostgreSQL internals to warehouse-scale workflows.
             </p>
 
-            <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
-              <a
+            <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center md:gap-6">
+              <SiteButton
                 href={`${SITE_URL}${RESUME_PATH}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(var(--ink))] px-5 py-3 font-mono text-sm font-semibold uppercase tracking-wider text-[hsl(var(--surface))] shadow-[5px_5px_0_hsl(var(--signal))] transition-transform hover:-translate-y-0.5 sm:w-auto sm:justify-start"
+                variant="primary"
+                className="group w-full sm:w-auto sm:justify-start"
               >
                 <FolderOpenDot strokeWidth={1.75} size={18} className="text-[hsl(var(--signal))] transition-colors group-hover:text-[hsl(var(--surface))]" aria-hidden />
                 Résumé
-              </a>
+              </SiteButton>
+
+              <SiteButton
+                to={BLOG_PATH}
+                variant="secondary"
+                className="group w-full sm:w-auto sm:justify-start"
+                aria-label={`${HERO_BLOG_CTA_LABEL} — technical notes & writeups`}
+              >
+                <NotebookText strokeWidth={1.75} size={18} className="text-[hsl(var(--signal-deep))] transition-colors group-hover:text-[hsl(var(--ink))]" aria-hidden />
+                {HERO_BLOG_CTA_LABEL}
+              </SiteButton>
+
+              {/* <span className="hidden font-mono text-xs text-[hsl(var(--muted-foreground))] sm:inline">
+                · {HERO_BLOG_CTA_HELPER}
+              </span>
               <span className="hidden font-mono text-xs text-[hsl(var(--muted-foreground))] sm:inline">
                 · shipping in prod at 3 am
-              </span>
+              </span> */}
             </div>
           </div>
 
@@ -61,7 +78,7 @@ const HeroSection = () => {
                   width={280}
                   height={280}
                   decoding="async"
-                  fetchPriority="high"
+                  {...{ fetchpriority: 'high' }}
                   className="aspect-square w-full max-w-[260px] object-cover sm:max-w-[280px]"
                 />
               </div>
