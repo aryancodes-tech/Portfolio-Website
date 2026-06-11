@@ -22,6 +22,18 @@ export const BLOG_PAGE_DESCRIPTION =
   'Deeper dives on backends, infrastructure, and the tradeoffs behind production systems — grouped by topic or as one-off posts.'
 
 /**
+ * Emoji shown on pinned blog index rows (replaces date or post count).
+ * @type {string}
+ */
+export const BLOG_PIN_EMOJI = '📌'
+
+/**
+ * Accessible label for pinned blog index rows.
+ * @type {string}
+ */
+export const BLOG_PIN_ARIA_LABEL = 'Pinned post'
+
+/**
  * Placeholder for the blog index search field.
  * @type {string}
  */

@@ -1,6 +1,7 @@
 import DOMPurify from 'dompurify'
 import { marked } from 'marked'
 import { BLOG_MANIFEST } from '../constants/blog.manifest'
+import { applyBlogPinning } from './applyPinning'
 
 /**
  * @typedef {object} BlogFrontmatter
@@ -37,6 +38,7 @@ import { BLOG_MANIFEST } from '../constants/blog.manifest'
  * @property {string} title
  * @property {readonly string[]} tags
  * @property {readonly BlogPostIndexItem[]} posts
+ * @property {boolean} [pinned] When true, entry is pinned on the blog index.
  */
 
 /**
@@ -44,6 +46,7 @@ import { BLOG_MANIFEST } from '../constants/blog.manifest'
  * @property {'standalone'} type
  * @property {string} entrySlug
  * @property {BlogPostIndexItem} post
+ * @property {boolean} [pinned] When true, entry is pinned on the blog index.
  */
 
 /**
@@ -261,7 +264,12 @@ export function loadBlogContent() {
     })
   }
 
-  return { items, docs: publishedDocs }
+  const pinnedSlugs = BLOG_MANIFEST.pinned ?? []
+
+  return {
+    items: applyBlogPinning(items, pinnedSlugs),
+    docs: publishedDocs,
+  }
 }
 
 /**
