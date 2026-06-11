@@ -48,19 +48,19 @@ const BlogEmptyState = ({ variant, query = '', onClearSearch }) => {
         {isSearch ? BLOG_EMPTY_SEARCH_DESCRIPTION : BLOG_EMPTY_CATALOG_DESCRIPTION}
       </p>
 
-      {/* {isSearch && query.length > 0 && (
+      {isSearch && query.length > 0 && (
         <p className="mt-4 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--paper))] px-4 py-2 font-mono text-[12px] tracking-wide text-[hsl(var(--ink))]">
           <span className="text-[hsl(var(--muted-foreground))]">Searched for </span>
           &ldquo;{query}&rdquo;
         </p>
-      )} */}
+      )}
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        {/* {isSearch && typeof onClearSearch === 'function' && (
+        {isSearch && typeof onClearSearch === 'function' && (
           <SiteButton type="button" variant="secondary" onClick={onClearSearch}>
             {BLOG_EMPTY_SEARCH_CLEAR_LABEL}
           </SiteButton>
-        )} */}
+        )}
 
         {!isSearch && (
           <SiteButton variant="secondary" to={HOME_PATH}>
