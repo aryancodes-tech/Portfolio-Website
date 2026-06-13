@@ -73,7 +73,7 @@ const Navbar = () => {
         <Link
           to={HOME_PATH}
           className="flex min-w-0 items-center gap-3 no-underline"
-          aria-label="Aryan Gupta — home"
+          aria-label="Aryan Gupta - home"
           onClick={() => {
             if (!isHomeRoute) setIsOpen(false)
           }}

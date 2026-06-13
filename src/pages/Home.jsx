@@ -22,7 +22,7 @@ const Home = () => {
     <main
       className="content site-shell pb-16"
       role="main"
-      aria-label="Aryan Gupta — Backend Developer, Software Engineer, Golang developer portfolio"
+      aria-label="Aryan Gupta - Backend Developer, Software Engineer, Golang developer portfolio"
     >
       <Navbar />
       <HeroSection />

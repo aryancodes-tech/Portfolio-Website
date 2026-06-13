@@ -10,7 +10,7 @@ const Experience = () => {
     <section
       id="experience"
       className="w-full px-1 py-8 sm:px-2 md:py-12"
-      aria-label="Aryan Gupta Work Experience — Omniful AI SDE-1, backend and microservices"
+      aria-label="Aryan Gupta Work Experience - Omniful AI SDE-1, backend and microservices"
     >
       <SectionHeading
         title="Experience"

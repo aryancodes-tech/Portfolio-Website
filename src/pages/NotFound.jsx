@@ -32,7 +32,7 @@ const NotFound = () => {
           <Link
             to={HOME_PATH}
             className="flex min-w-0 items-center gap-3 no-underline"
-            aria-label={`${PERSON_NAME} — home`}
+            aria-label={`${PERSON_NAME} - home`}
           >
             <img
               src="/ag_black.svg"

@@ -8,7 +8,7 @@ import { loadBlogContent } from '../blog/content'
 import { useBlogSearch } from '../hooks/useBlogSearch'
 
 /**
- * Blog landing page — manifest-driven index with search and series accordion rows.
+ * Blog landing page - manifest-driven index with search and series accordion rows.
  */
 const Blog = () => {
   const { items } = useMemo(() => loadBlogContent(), [])

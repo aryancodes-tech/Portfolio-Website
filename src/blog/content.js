@@ -273,12 +273,21 @@ export function loadBlogContent() {
 }
 
 /**
+ * Wrap GFM tables so wide layouts scroll horizontally on small screens.
+ * @param {string} html
+ * @returns {string}
+ */
+function wrapBlogTables(html) {
+  return html.replace(/<table>/g, '<div class="blog-table-wrap"><table>').replace(/<\/table>/g, '</table></div>')
+}
+
+/**
  * Render markdown into sanitized HTML.
  * @param {string} markdown
  * @returns {string}
  */
 export function renderMarkdown(markdown) {
-  const html = marked.parse(markdown)
+  const html = wrapBlogTables(marked.parse(markdown))
   return DOMPurify.sanitize(html)
 }
 

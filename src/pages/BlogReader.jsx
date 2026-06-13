@@ -9,7 +9,7 @@ import { getBlogReaderTitle, resolveBlogReader } from '../blog/resolveReader'
 import { useBlogCodeCopy } from '../hooks/useBlogCodeCopy'
 
 /**
- * Blog reader — `/blog/:entrySlug` and `/blog/:entrySlug/:postSlug`.
+ * Blog reader - `/blog/:entrySlug` and `/blog/:entrySlug/:postSlug`.
  */
 const BlogReader = () => {
   const { entrySlug = '', postSlug = '' } = useParams()
@@ -36,7 +36,7 @@ const BlogReader = () => {
   const entryTitle = getBlogReaderTitle(resolved)
 
   return (
-    <main className="content site-shell pb-16" role="main" aria-label={`${entryTitle} — blog`}>
+    <main className="content site-shell pb-16" role="main" aria-label={`${entryTitle} - blog`}>
       <Navbar />
 
       <section className="px-1 pt-8 sm:px-2 sm:pt-10" aria-label="Blog content">

@@ -15,7 +15,7 @@ import { BLOG_PATH } from '../../constants/urls'
  */
 const BlogArticle = ({ doc, html, articleRef }) => (
   <article
-    className="surface-card rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-7 sm:p-10"
+    className="surface-card min-w-0 overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-7 sm:p-10"
     aria-label={doc.frontmatter.title ?? 'Blog post'}
     ref={articleRef}
   >

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { siteButtonClassName } from './siteButtonStyles'
 
 /**
- * Portfolio CTA — renders `button`, in-app `Link`, or external `a` from props.
+ * Portfolio CTA - renders `button`, in-app `Link`, or external `a` from props.
  *
  * @param {object} props
  * @param {'primary' | 'secondary'} [props.variant]

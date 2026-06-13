@@ -14,7 +14,7 @@ const HeroSection = () => {
     <div className="w-full px-1 sm:px-2 pt-8 pb-2">
       <section
         className="surface-card relative overflow-hidden rounded-[2rem] border-2 border-[hsl(var(--ink))] bg-[hsl(var(--surface))] p-6 sm:p-10 md:p-14 lg:p-16"
-        aria-label="Aryan Gupta — Backend Developer and Software Engineer"
+        aria-label="Aryan Gupta - Backend Developer and Software Engineer"
       >
         <div className="hero-grid-bg pointer-events-none absolute inset-0 opacity-[0.65]" aria-hidden />
         <div className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[hsl(var(--signal)/0.12)] blur-3xl" aria-hidden />
@@ -32,7 +32,7 @@ const HeroSection = () => {
             <p className="max-w-xl font-['Gilroy'] text-lg leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-xl">
               Backend engineer focused on{' '}
               <span className="text-[hsl(var(--ink))]">scalable APIs</span>, microservices, and{' '}
-              <span className="text-[hsl(var(--ink))]">distributed systems</span> — from PostgreSQL internals to warehouse-scale workflows.
+              <span className="text-[hsl(var(--ink))]">distributed systems</span> - from PostgreSQL internals to warehouse-scale workflows.
             </p>
 
             <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center md:gap-6">
@@ -51,7 +51,7 @@ const HeroSection = () => {
                 to={BLOG_PATH}
                 variant="secondary"
                 className="group w-full sm:w-auto sm:justify-start"
-                aria-label={`${HERO_BLOG_CTA_LABEL} — technical notes & writeups`}
+                aria-label={`${HERO_BLOG_CTA_LABEL} - technical notes & writeups`}
               >
                 <NotebookText strokeWidth={1.75} size={18} className="text-[hsl(var(--signal-deep))] transition-colors group-hover:text-[hsl(var(--ink))]" aria-hidden />
                 {HERO_BLOG_CTA_LABEL}

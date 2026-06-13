@@ -68,14 +68,14 @@ export const META_TITLE =
  * Document title for the custom 404 page.
  * @type {string}
  */
-export const NOT_FOUND_META_TITLE = '404 — Page Not Found | Aryan Gupta'
+export const NOT_FOUND_META_TITLE = '404 - Page Not Found | Aryan Gupta'
 
 /**
  * Meta description (~150–160 characters).
  * @type {string}
  */
 export const META_DESCRIPTION =
-  'Aryan Gupta — Backend Developer & Software Engineer (SDE-1) at Omniful AI. Golang, Python, microservices, REST APIs, PostgreSQL, AWS. JIIT. System design & high-performance backends.'
+  'Aryan Gupta - Backend Developer & Software Engineer (SDE-1) at Omniful AI. Golang, Python, microservices, REST APIs, PostgreSQL, AWS. JIIT. System design & high-performance backends.'
 
 /** Open Graph site name. @type {string} */
 export const OG_SITE_NAME = 'Aryan Gupta Portfolio'
@@ -85,14 +85,14 @@ export const OG_TITLE = META_TITLE
 
 /** Open Graph / Twitter description. @type {string} */
 export const OG_DESCRIPTION =
-  'Portfolio of Aryan Gupta — Backend Developer, Software Engineer (SDE-1) at Omniful AI. Golang, microservices, distributed systems, logistics & supply chain software.'
+  'Portfolio of Aryan Gupta - Backend Developer, Software Engineer (SDE-1) at Omniful AI. Golang, microservices, distributed systems, logistics & supply chain software.'
 
 /** Open Graph image absolute URL. @type {string} */
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg`
 
 /** Alt text for OG / Twitter preview images. @type {string} */
 export const OG_IMAGE_ALT =
-  'Aryan Gupta — Backend Developer, Software Engineer, Golang developer at Omniful AI'
+  'Aryan Gupta - Backend Developer, Software Engineer, Golang developer at Omniful AI'
 
 /** Contact email (public). @type {string} */
 export const CONTACT_EMAIL = 'aryancodes.tech@gmail.com'
@@ -171,7 +171,7 @@ export const HERO_SUMMARY_PLAIN =
  * @type {string}
  */
 export const PROFILE_IMAGE_ALT =
-  'Aryan Gupta — Backend Developer, Software Engineer, and Golang developer at Omniful AI, JIIT alumnus'
+  'Aryan Gupta - Backend Developer, Software Engineer, and Golang developer at Omniful AI, JIIT alumnus'
 
 /**
  * schema.org @graph for index.html JSON-LD.

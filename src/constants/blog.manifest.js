@@ -1,5 +1,5 @@
 /**
- * Blog publish manifest — single source of truth for what appears on the site.
+ * Blog publish manifest - single source of truth for what appears on the site.
  *
  * Workflow:
  * 1. Add or edit markdown under `src/content/blog/` (drafts can live there unpublished).

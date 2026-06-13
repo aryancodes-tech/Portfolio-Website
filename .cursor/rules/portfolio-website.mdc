@@ -1,5 +1,5 @@
 ---
-description: Portfolio website conventions — design system, performance, SEO, and code quality for aryancodes.tech
+description: Portfolio website conventions - design system, performance, SEO, and code quality for aryancodes.tech
 globs: src/**/*.{jsx,css},scripts/**/*.mjs,index.html,vite.config.js,vercel.json
 alwaysApply: false
 ---
@@ -13,8 +13,8 @@ alwaysApply: false
 
 ## Design language (do not change without explicit request)
 
-- **Colors:** HSL CSS variables in [src/index.css](src/index.css) — `--ink`, `--paper`, `--surface`, `--signal`, `--signal-deep`, `--muted`, etc. Use `hsl(var(--token))` in Tailwind arbitrary values.
-- **Typography:** Body = Gilroy; headings (`font-display`) = Syne; labels/mono = IBM Plex Mono. Fonts are **self-hosted only** — see [src/styles/fonts.css](src/styles/fonts.css). Never add Google Fonts CDN.
+- **Colors:** HSL CSS variables in [src/index.css](src/index.css) - `--ink`, `--paper`, `--surface`, `--signal`, `--signal-deep`, `--muted`, etc. Use `hsl(var(--token))` in Tailwind arbitrary values.
+- **Typography:** Body = Gilroy; headings (`font-display`) = Syne; labels/mono = IBM Plex Mono. Fonts are **self-hosted only** - see [src/styles/fonts.css](src/styles/fonts.css). Never add Google Fonts CDN.
 - **Layout:** `content` and `site-shell` wrappers; sections use `surface-card`, `border-2`, offset shadows (`shadow-[6px_6px_0_...]`).
 - **Copy & placement:** Do not change visible text, section order, or spacing unless the user asks.
 
@@ -42,13 +42,13 @@ alwaysApply: false
 ## Performance (Lighthouse / PageSpeed)
 
 - Keep [Navbar](src/components/Navbar.jsx) + [HeroSection](src/components/HeroSection.jsx) eager; below-fold sections lazy in [Home.jsx](src/pages/Home.jsx) with `Suspense`
-- Preserve `manualChunks` in [vite.config.js](vite.config.js); avoid heavy new dependencies (no unused Radix/shadcn — `components.json` is legacy)
+- Preserve `manualChunks` in [vite.config.js](vite.config.js); avoid heavy new dependencies (no unused Radix/shadcn - `components.json` is legacy)
 - Framer Motion: reuse presets from [src/motion/variants.js](src/motion/variants.js)
 - Do not add animation libraries to above-the-fold critical path
 
 ## Component patterns
 
-- Section titles: [SectionHeading.jsx](src/components/SectionHeading.jsx) — only pass `kicker` when it should render
+- Section titles: [SectionHeading.jsx](src/components/SectionHeading.jsx) - only pass `kicker` when it should render
 - External “Visit” links: [ExternalLinkRow.jsx](src/components/ExternalLinkRow.jsx)
 - Clipboard: [useCopyToClipboard.js](src/hooks/useCopyToClipboard.js)
 - Résumé URL: `${SITE_URL}${RESUME_PATH}`; Drive redirect: `RESUME_DRIVE_URL` in urls.js
