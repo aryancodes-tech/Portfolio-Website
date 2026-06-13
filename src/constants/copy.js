@@ -6,7 +6,7 @@
  * Label for the hero blog CTA.
  * @type {string}
  */
-export const HERO_BLOG_CTA_LABEL = 'Read my blog'
+export const HERO_BLOG_CTA_LABEL = 'Read my blogs'
 
 /**
  * Main heading on the blog index page.
@@ -19,7 +19,7 @@ export const BLOG_PAGE_TITLE = 'Engineering notes and systems writeups.'
  * @type {string}
  */
 export const BLOG_PAGE_DESCRIPTION =
-  'Deeper dives on backends, infrastructure, and the tradeoffs behind production systems — grouped by topic or as one-off posts.'
+  'Deeper dives on backends, infrastructure, and the tradeoffs behind production systems - grouped by topic or as one-off posts.'
 
 /**
  * Emoji shown on pinned blog index rows (replaces date or post count).
@@ -56,7 +56,7 @@ export const BLOG_EMPTY_SEARCH_TITLE = 'Nothing matched your search'
  * @type {string}
  */
 export const BLOG_EMPTY_SEARCH_DESCRIPTION =
-  'Try another keyword — only titles and descriptions are searchable.'
+  'Try another keyword - only titles and descriptions are searchable.'
 
 /**
  * Label for the clear-search action on the empty search state.

@@ -1,6 +1,6 @@
 ---
 name: portfolio-website
-description: Work on the aryancodes.tech React portfolio — SEO/LCP build pipeline, design tokens, self-hosted fonts, image optimization, and Lighthouse-friendly patterns. Use when editing this repo, adding portfolio content, or optimizing performance/SEO.
+description: Work on the aryancodes.tech React portfolio - SEO/LCP build pipeline, design tokens, self-hosted fonts, image optimization, and Lighthouse-friendly patterns. Use when editing this repo, adding portfolio content, or optimizing performance/SEO.
 ---
 
 # Portfolio Website Agent Skill
@@ -15,7 +15,7 @@ description: Work on the aryancodes.tech React portfolio — SEO/LCP build pipel
 
 ```
 Portfolio-Website/
-├── index.html          # SEO/LCP injection targets (markers only — sync via script)
+├── index.html          # SEO/LCP injection targets (markers only - sync via script)
 ├── public/             # Static assets (favicons, hero WebP, project images/logos)
 ├── scripts/
 │   ├── sync-seo.mjs    # Injects meta + JSON-LD + LCP shell from seo.js
@@ -40,10 +40,10 @@ Portfolio-Website/
 
 ## Do-not-break list
 
-1. **Colors** — only `hsl(var(--*))` tokens from `index.css`
-2. **Copy** — visible marketing text unchanged unless user requests
-3. **Layout** — section order in `Home.jsx` and Tailwind class strings on cards
-4. **LCP** — hero WebP, preloads, static shell in `index.html` (via sync script)
+1. **Colors** - only `hsl(var(--*))` tokens from `index.css`
+2. **Copy** - visible marketing text unchanged unless user requests
+3. **Layout** - section order in `Home.jsx` and Tailwind class strings on cards
+4. **LCP** - hero WebP, preloads, static shell in `index.html` (via sync script)
 
 ## Workflows
 
@@ -56,13 +56,13 @@ Portfolio-Website/
 ### Update hero LCP text (static shell only)
 
 - Plain summary for static shell: `HERO_SUMMARY_PLAIN` in `seo.js`
-- Visible React hero copy is in `HeroSection.jsx` (may differ stylistically) — change only when user asks
+- Visible React hero copy is in `HeroSection.jsx` (may differ stylistically) - change only when user asks
 
 ### Add a project card
 
 1. Add logo to `public/project_logos/` and preview to `public/project_images/`.
 2. Append entry to `src/constants/data/projects.js` (same shape as existing items).
-3. `Projects.jsx` maps data automatically — no layout changes needed.
+3. `Projects.jsx` maps data automatically - no layout changes needed.
 
 ### Update work experience / education
 
@@ -136,4 +136,4 @@ npm run lint
 
 ## Ignored local docs
 
-`SEO_README.md` and `SEO_SUBMISSION_CHECKLIST.md` are gitignored — safe for local SEO submission notes.
+`SEO_README.md` and `SEO_SUBMISSION_CHECKLIST.md` are gitignored - safe for local SEO submission notes.

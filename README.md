@@ -1,4 +1,4 @@
-# Aryan Gupta — Portfolio Website
+# Aryan Gupta - Portfolio Website
 
 Personal portfolio for [aryancodes.tech](https://aryancodes.tech), built as a performance-focused React SPA with automated SEO and LCP (Largest Contentful Paint) optimization for strong Lighthouse and PageSpeed scores.
 
@@ -135,7 +135,7 @@ Local SEO submission notes can live in `SEO_README.md` / `SEO_SUBMISSION_CHECKLI
 ## Design system
 
 - **Tokens:** HSL variables in `src/index.css` (`--ink`, `--paper`, `--signal`, etc.)
-- **Fonts:** Self-hosted in `src/assets/fonts/`, declared in `src/styles/fonts.css` — no Google Fonts CDN
+- **Fonts:** Self-hosted in `src/assets/fonts/`, declared in `src/styles/fonts.css` - no Google Fonts CDN
 - **Components:** Blueprint-style cards (`surface-card`, thick borders, offset shadows)
 
 Agents and contributors should read [`.cursor/rules/portfolio-website.mdc`](.cursor/rules/portfolio-website.mdc) for full conventions.

@@ -19,7 +19,7 @@ import { HOME_PATH } from '../../constants/urls'
  * Empty state panel for the blog index.
  *
  * @param {object} props
- * @param {BlogEmptyStateVariant} props.variant `search` — active query, no matches; `catalog` — no published posts.
+ * @param {BlogEmptyStateVariant} props.variant `search` - active query, no matches; `catalog` - no published posts.
  * @param {string} [props.query] Active search query (search variant only).
  * @param {() => void} [props.onClearSearch] Clears the search input (search variant only).
  */

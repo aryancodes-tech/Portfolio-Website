@@ -10,7 +10,7 @@ const Education = () => {
     <section
       id="education"
       className="w-full px-1 py-8 sm:px-2 md:py-12"
-      aria-label="Aryan Gupta education — JIIT Jaypee Institute of Information Technology"
+      aria-label="Aryan Gupta education - JIIT Jaypee Institute of Information Technology"
     >
       <SectionHeading
         title="Education"

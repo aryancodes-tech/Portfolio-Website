@@ -109,7 +109,7 @@ export function buildLcpShellHtml(opts) {
   const { kicker, name, summary, imageAlt, imageSm, imageLg } = opts
   return `    <div id="static-lcp" class="static-lcp">
       <main class="static-main">
-        <section class="static-hero-card" aria-label="${name} — Backend Developer and Software Engineer">
+        <section class="static-hero-card" aria-label="${name} - Backend Developer and Software Engineer">
           <div class="static-hero-inner">
             <div>
               <p class="static-kicker">${kicker}</p>

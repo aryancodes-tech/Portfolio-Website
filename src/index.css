@@ -155,7 +155,7 @@ html {
   }
 
   .blog-prose {
-    @apply text-[hsl(var(--muted-foreground))] leading-relaxed;
+    @apply min-w-0 max-w-full text-[hsl(var(--muted-foreground))] leading-relaxed;
   }
 
   .blog-prose h1,
@@ -227,8 +227,30 @@ html {
     @apply mt-0;
   }
 
-  .blog-prose table {
-    @apply mt-4 w-full border-collapse text-sm sm:text-base;
+  .blog-prose hr {
+    @apply my-8 border-0 border-t border-dashed border-[hsl(var(--border))];
+  }
+
+  .blog-prose hr + h2,
+  .blog-prose hr + h3,
+  .blog-prose hr + h4,
+  .blog-prose hr + p,
+  .blog-prose hr + ul,
+  .blog-prose hr + ol,
+  .blog-prose hr + blockquote,
+  .blog-prose hr + pre,
+  .blog-prose hr + .blog-table-wrap {
+    @apply mt-0;
+  }
+
+  .blog-prose .blog-table-wrap {
+    @apply mt-4 max-w-full overflow-x-auto rounded-xl border border-[hsl(var(--border))];
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .blog-prose .blog-table-wrap table {
+    @apply w-max min-w-full border-collapse text-sm sm:text-base;
   }
 
   .blog-prose th {
