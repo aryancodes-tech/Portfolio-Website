@@ -5,8 +5,10 @@ import BlogArticle from '../components/blog/BlogArticle'
 import BlogNotFound from '../components/blog/BlogNotFound'
 import BlogSeriesNav from '../components/blog/BlogSeriesNav'
 import { loadBlogContent } from '../blog/content'
+import { buildBlogPostSeo } from '../blog/seo'
 import { getBlogReaderTitle, resolveBlogReader } from '../blog/resolveReader'
 import { useBlogCodeCopy } from '../hooks/useBlogCodeCopy'
+import { useBlogSeo } from '../hooks/useBlogSeo'
 
 /**
  * Blog reader - `/blog/:entrySlug` and `/blog/:entrySlug/:postSlug`.
@@ -22,6 +24,13 @@ const BlogReader = () => {
   )
 
   useBlogCodeCopy(articleRef, resolved?.html ?? '')
+
+  const seoConfig = useMemo(() => {
+    if (!resolved) return null
+    return buildBlogPostSeo(resolved.doc, entrySlug, resolved.doc.postSlug)
+  }, [resolved, entrySlug])
+
+  useBlogSeo(seoConfig)
 
   if (!resolved) {
     return (

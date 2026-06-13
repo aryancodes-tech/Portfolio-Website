@@ -9,7 +9,7 @@
     "generate:og": "node scripts/generate-og.mjs",
     "sync:seo": "node scripts/sync-seo.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "prebuild": "node scripts/sync-seo.mjs",
+    "prebuild": "node scripts/sync-seo.mjs && node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

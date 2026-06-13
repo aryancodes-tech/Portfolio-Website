@@ -15,6 +15,25 @@ export const HERO_BLOG_CTA_LABEL = 'Read my blogs'
 export const BLOG_PAGE_TITLE = 'Engineering notes and systems writeups.'
 
 /**
+ * Document title for the blog index (SERP).
+ * @type {string}
+ */
+export const BLOG_INDEX_META_TITLE = 'Engineering Blog | Aryan Gupta'
+
+/**
+ * Meta description for the blog index (~150–160 characters).
+ * @type {string}
+ */
+export const BLOG_INDEX_META_DESCRIPTION =
+  'Technical blog by Aryan Gupta on backends, caching, distributed systems, and production engineering - LRU, Redis, microservices, and more.'
+
+/**
+ * Suffix appended to individual blog post document titles.
+ * @type {string}
+ */
+export const BLOG_POST_TITLE_SUFFIX = ' | Aryan Gupta'
+
+/**
  * Supporting description on the blog index page.
  * @type {string}
  */

@@ -29,9 +29,9 @@ const BlogArticle = ({ doc, html, articleRef }) => (
     </div>
 
     <div className="flex flex-col gap-3 border-b-2 border-dashed border-[hsl(var(--border))] pb-6">
-      <h2 className="text-3xl font-bold tracking-tight text-[hsl(var(--ink))] sm:text-4xl">
+      <h1 className="text-3xl font-bold tracking-tight text-[hsl(var(--ink))] sm:text-4xl">
         {doc.frontmatter.title ?? ''}
-      </h2>
+      </h1>
       {doc.frontmatter.description && doc.frontmatter.description.length > 0 && (
         <p className="text-base leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-lg">
           {doc.frontmatter.description}

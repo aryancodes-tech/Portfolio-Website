@@ -3,9 +3,11 @@ import Navbar from '../components/Navbar'
 import BlogEmptyState from '../components/blog/BlogEmptyState'
 import BlogIndexList from '../components/blog/BlogIndexList'
 import BlogSearchField from '../components/blog/BlogSearchField'
+import { buildBlogIndexSeo } from '../blog/seo'
 import { BLOG_PAGE_DESCRIPTION, BLOG_PAGE_TITLE } from '../constants/copy'
 import { loadBlogContent } from '../blog/content'
 import { useBlogSearch } from '../hooks/useBlogSearch'
+import { useBlogSeo } from '../hooks/useBlogSeo'
 
 /**
  * Blog landing page - manifest-driven index with search and series accordion rows.
@@ -21,6 +23,9 @@ const Blog = () => {
     showEmptySearch,
     showPostList,
   } = useBlogSearch(items)
+
+  const seoConfig = useMemo(() => buildBlogIndexSeo(), [])
+  useBlogSeo(seoConfig)
 
   return (
     <main className="content site-shell pb-16" role="main" aria-label="Blog">
